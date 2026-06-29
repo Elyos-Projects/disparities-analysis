@@ -1,6 +1,6 @@
 # Disparities-Analysis — PLAN.md
 
-> Status: Draft · Version: 0.1.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
+> Status: Draft · Version: 0.2.0 · Last updated: 2026-06-29 · Owner: TBD (maintainer) · Lane: donated
 
 Open, reproducible analyses of **cancer outcome disparities** — differences in incidence, stage at
 diagnosis, mortality, survival, and screening uptake across population groups — built **only** from
@@ -30,11 +30,29 @@ The single most important design fact is the **framing**. A disparity analysis d
 do harm — it can biologize race, imply a community is "to blame," launder ecological correlations
 into causal claims, or re-identify a small group from a thin cell. So the **non-stigmatizing
 health-equity editorial policy and the statistical-methods/provenance standard are the first build
-items and hard product requirements** — reviewed and enforced, not a disclaimer. Every analysis is
-mounted behind them: aggregate-only data, verified source licenses, mandatory provenance per
-assertion, small-cell suppression honored, both **absolute and relative** disparity reported, a
-deliberate reference-group policy (never defaulting one group to "normal"), and an explicit
-ecological-fallacy/"association is not causation" guardrail.
+items and hard product requirements** — reviewed and enforced, not a disclaimer, and **anchored to
+named external standards** (CDC's Health Equity Guiding Principles for Inclusive Communication, the
+CDC Health Equity Style Guide, and the AMA/AAMC Advancing Health Equity language guide) so the policy
+conforms to a vetted base rather than being re-invented. Every analysis is mounted behind them:
+aggregate-only data, verified source licenses, mandatory provenance per assertion, small-cell
+suppression honored, both **absolute and relative** disparity reported, a deliberate reference-group
+policy (never defaulting one group to "normal"), and an explicit ecological-fallacy/"association is
+not causation" guardrail.
+
+Two framing nuances sharpen this further and are first-class requirements in v0.2. First, structural
+framing must be **evidence-tiered**: mandating that every gap be described as the result of
+"modifiable structural/social conditions" is the correct *default* frame, but applied mechanically it
+can itself **over-claim causation from ecological data** — the mirror image of biological
+essentialism. A purely ecological SEER cut measures the gap; it does not, by itself, demonstrate that
+*structural racism* caused that specific gap (that attribution rests on the broader literature). So
+the policy separates **"this analysis measures the gap"** from **"the established literature
+attributes such gaps to structural factors X/Y (cite)"** — non-stigmatizing *and* epistemically
+honest. Second, the analysis must take a **bounded intersectionality posture**: because the
+most policy-relevant disparities are often intersectional (e.g., rural + low-income + Black; AIAN
+women) yet those are exactly the thin cells suppression removes, the project **reports the
+intersectional cuts the data supports at acceptable suppression and explicitly discloses where
+suppression forces omission** — silent omission would erase the most-affected groups, which is both a
+completeness gap and an equity failure.
 
 This is a **MEDIUM** risk-tier project on its core analytical surface (it needs domain accuracy:
 epidemiology/biostatistics review + health-equity/community framing review), with a **HIGH** risk
@@ -113,6 +131,78 @@ framing/methods standards, the provenance pipeline, and **one exemplar-site anal
 and marks all delivery/adoption work `TO BE SECURED` (`verifiedNeed: false`). Outreach is **dated**
 (see the partner-acquisition plan above), and a **build-vs-pivot decision rule** governs slippage
 rather than shipping to no real beneficiary.
+
+---
+
+## Competitive landscape & differentiation
+
+This is a **crowded, authoritative field** — the incumbents are federal agencies and the American
+Cancer Society — and the honest competitive truth is that **the data and even the disparity math
+already exist and are excellent**. The whitespace is **not new numbers**; it is **reproducibility +
+provenance-per-assertion + an independently-reviewed non-stigmatizing narrative + last-mile fit for a
+specific community partner**. The market splits three ways:
+
+- **Federal data / exploration tools** — rich data, weak reasoning/narrative/provenance-package:
+  - **NCI SEER\*Explorer** — interactive aggregate incidence/mortality/survival by site, race, sex,
+    age, stage (age-standardized, CIs, APC trends), but a data-exploration UI, not a reasoned,
+    reviewed analysis; no SES/area dimension; not a reproducible package.
+  - **NCI State Cancer Profiles** — national/state/county maps explicitly built to "expose health
+    disparities"; county granularity, but maps/numbers only, no structural narrative, no
+    per-assertion provenance, not partner-tailored.
+  - **NCI HD\*Calc** — software computing **11 summary disparity measures** (Index of Disparity, SII,
+    RII, with CIs); the *de facto* standard for disparity indices — we should **use** it, not compete
+    with it; it is a calculator, not an analysis/narrative/last-mile layer.
+  - **NCI SEER aggregate statistics** and **CDC U.S. Cancer Statistics Data Viz Tool** (NPCR+SEER
+    ~100% coverage, careful race/ethnicity technical notes) — exploration tools, no reproducible
+    artifact, subject to federal data-availability disruption (note the *restoredcdc.org* mirrors).
+  - **NIMHD HDPulse** — the **closest competitor**: a Data Portal (national/state/county disparity
+    stats incl. cancer) **plus an Interventions Portal** (evidence-based interventions — the
+    actionability layer most others lack). Still a portal, not a per-site reviewed analysis with
+    provenance-per-assertion; framing is generic; not partner-co-developed.
+- **Authoritative narrative reports** — strong framing, *not reproducible or local*:
+  - **ACS Cancer Facts & Figures for [specific populations]** + **Status of Cancer Disparities in the
+    U.S., 2025** — gold-standard narrative that explicitly traces disparities to structural
+    racism / social determinants, peer-reviewed (CA: Cancer J Clin); but national (not
+    local/partner-specific), PDF reports rather than reproducible pipelines, annual cadence, not
+    co-developed with a specific community.
+  - **AACR Cancer Disparities Progress Report** — strong biennial science+policy framing, but
+    narrative, not a reproducible local analysis or tool.
+- **Ranking models / adjacent** — instructive as the pattern we **refuse**:
+  - **County Health Rankings & Roadmaps** (RWJF + UW) — county ranking model; exactly the
+    naming/scorecard stigma pattern our plan rejects, and cancer is one indicator among many.
+  - **Our World in Data — Cancer** — excellent reproducibility ethos but international/country-level
+    GBD modeled estimates, not U.S. within-country race/SES registry disparities.
+
+**No incumbent delivers the combination** of a reproducible, provenance-per-assertion, independently
+**methods-reviewed AND framing-reviewed**, openly-licensed, partner-co-developed analysis for a
+specific community. That gap is the project's reason to exist.
+
+**Differentiators to win.**
+
+1. **"Reviewed reproducibility" as the product.** The unit is not a chart; it is a sealed package —
+   pinned inputs + documented queries + provenance-per-assertion + methods sign-off + framing
+   sign-off + a reproduction test. Nobody else ships this combination.
+2. **Framing as a tested, independently-reviewed RELEASE GATE, not a disclaimer** — anchored to the
+   **CDC/AMA equity style guides**, community-reviewed ("nothing about us without us"), with a **hard
+   no-ranking / no-scorecard rule**. This directly counters the field's chief failure mode (correct
+   numbers used to stigmatize) and is the opposite of County Health Rankings' ranking model — the
+   single strongest differentiator.
+3. **Built *with* and *for* a specific beneficiary** (COE / coalition / health department), shipped
+   only on *adoption* — versus publish-and-walk-away national reports.
+4. **Methodological maximalism using the field's own validated tools** (NCI Joinpoint, HD\*Calc-grade
+   disparity indices, `lifelines`/`statsmodels`) rather than bespoke reimplementation — credibility
+   by *using* the tools reviewers already trust, and validating our outputs against HD\*Calc on the
+   exemplar site.
+5. **Radical limitation-honesty** — misclassification direction-of-bias, intersectional-suppression
+   disclosure, and "adjusted-for / not-adjusted-for" notes — building the trust that wins adoption
+   among careful equity researchers.
+6. **Resilience to federal data disruption** — an openly-licensed, checksum-pinned, reproducible
+   package is a durable public good when federal portals go dark or change (the *restoredcdc.org*
+   signal).
+
+**Where we deliberately do NOT compete:** we do not re-derive the national numbers (we consume the
+authoritative sources), we do not build another exploration dashboard, and we do not rank or
+scorecard anyone.
 
 ---
 
@@ -241,21 +331,55 @@ Elyos rules about no vendor lock-in and no secrets in logs still apply.
 
 1. **Framing & methods gate (the "guardrail" of this project) — built first.** Two enforced
    standards, not documentation:
-   - *Non-stigmatizing health-equity editorial policy* — required language and framing rules:
-     disparities described as outcomes of modifiable structural/social conditions; race/ethnicity
-     treated as **social/administrative constructs** with documented misclassification, never as
-     biology; **asset-based, person-first, community-centered language**; a **reference-group
-     policy** that never silently codes one group as "normal" and that reports disparity **to a
-     stated reference and** as an across-group index; mandatory caveats (data vintage, suppression,
-     CIs, **"association is not causation"/ecological-fallacy** warning) on every output; and the
-     "no medical advice" rule for any patient-facing surface.
+   - *Non-stigmatizing health-equity editorial policy* — **anchored by reference to named external
+     standards** (CDC Health Equity Guiding Principles for Inclusive Communication, the CDC Health
+     Equity Style Guide, and the AMA/AAMC Advancing Health Equity language guide), with any project
+     deltas recorded — required language and framing rules: disparities described as outcomes of
+     modifiable structural/social conditions; race/ethnicity treated as **social/administrative
+     constructs** with documented misclassification, never as biology; an explicit prohibition on
+     **interpreting genetic-ancestry/admixture as a proxy for socially-assigned race**, with
+     area-based SES described as *exposure/environment*, not *individual behavior*, and a positive
+     instruction to **name the mechanism** where known (insurance, screening access, environmental
+     exposure) rather than leaving a bare race coefficient to be misread as intrinsic; **asset-based,
+     person-first, community-centered language**; a **reference-group policy** that never silently
+     codes one group as "normal" and that reports disparity **to a stated reference and** as an
+     across-group index; mandatory caveats (data vintage, suppression, CIs, **"association is not
+     causation"/ecological-fallacy** warning) on every output; and the "no medical advice" rule for
+     any patient-facing surface.
+     - **Evidence-tiered structural framing (key correctness rule).** Structural framing is the
+       default frame but must not be applied mechanically: every claim is tiered to separate
+       **"this analysis measures the gap"** (what the dataset supports) from **"the established
+       literature attributes such gaps to structural factors X/Y (cite)"** (what the broader
+       literature supports). This keeps the framing non-stigmatizing *without* over-claiming
+       causation from ecological data — the mirror of the biological-essentialism error. The exact
+       tier boundary (how strongly a structural frame may be stated from purely ecological data) is
+       jointly calibrated by the framing **and** methods reviewers (see *Open questions*).
+     - **Bounded intersectionality posture.** The analysis reports the intersectional cuts the data
+       supports at acceptable suppression (e.g., rural + low-income + race; AIAN women) **and
+       explicitly discloses where suppression forces omission**, rather than silently dropping thin
+       intersectional cells — because silent omission erases the most-affected groups. The
+       principled rule for "report vs. disclose-as-suppressed" is a methods+framing decision (see
+       *Open questions*).
    - *Statistical-methods + provenance + suppression standard* — required methods:
      **age-standardization** (2000 U.S. standard population for U.S. data; WHO World Standard for
      international), **confidence intervals** (e.g., Tiwari-modified for SEER rates),
      relative-standard-error/stability flagging, **joinpoint** trend modeling with APC/AAPC,
      **both absolute (rate difference) and relative (rate ratio)** disparity plus an index of
-     disparity, and **small-cell suppression** per the source's rule (e.g., NCHS suppress counts
-     < 10; honor SEER/USCS thresholds) with a **re-identification safety check**.
+     disparity, and **small-cell suppression** per the source's rule with a **re-identification
+     safety check**. The standard names **exact, mechanically-checkable thresholds** rather than a
+     vague "per source" rule: e.g., NCHS-style suppress rates with **numerator < 10** (and small
+     denominators per source), flag rates with **RSE > 30% as unreliable** and **suppress at
+     RSE > 50%**, apply **complementary suppression**, and set a **joinpoint minimum-points** rule;
+     SEER/USCS thresholds are honored where more conservative. Each disparity statement also adopts
+     **HD\*Calc's measure set** (Index of Disparity, SII/RII, with CIs), validated against HD\*Calc
+     on the exemplar site, and carries a one-line **"adjusted for / not adjusted for"** note (e.g.,
+     age-standardized controls age but *not* stage, comorbidity, or access) to block
+     over-interpretation of an age-adjusted-only gap as "pure." Race/ethnicity handling records a
+     per-group **direction-of-bias** note (which groups are under-counted and why — CDC/USCS note
+     incidence/mortality are underestimated for AIAN, API, and Hispanic people; linkage such as IHS
+     for AIAN is recommended) and **pre-decides OMB 1997-vs-2024 standard handling** (the 2024
+     revision merges race/ethnicity into one question and adds MENA, which will fracture trend
+     comparability) so pre/post trends are bridged, not silently mis-compared.
 
 2. **Provenance layer (`provenance/`).** A machine-checkable `Source` record per dataset and per
    assertion: source name, dataset + **release/version year**, exact **query/parameters**,
@@ -274,11 +398,49 @@ Elyos rules about no vendor lock-in and no secrets in logs still apply.
 
 5. **Reporting (`reports/`).** The technical brief and the health-equity narrative report, generated
    from analysis outputs with citations and limitations auto-attached; figures regenerated from
-   source so they cannot drift from the data.
+   source so they cannot drift from the data. Each finding may carry an optional, education-only
+   **"what works" pointer** that maps it to evidence-based interventions via **NIMHD HDPulse's
+   Interventions Portal** and **The Community Guide** — increasing actionability and closing the gap
+   to HDPulse **without** the project itself making any clinical recommendation (the line to the HIGH
+   patient-facing gate is an *Open question*).
 
 6. **Reproducibility harness (`scripts/reproduce.ts`).** Re-runs the pipeline from pinned inputs and
    asserts published figures/tables are reproduced (bit-for-bit or within a documented tolerance);
-   wired into CI.
+   wired into CI. Raw source pulls are **mirrored/pinned with checksums and archived** so the package
+   survives federal-portal disruption (the *restoredcdc.org* signal) and remains reproducible years
+   later.
+
+**Claude API leverage (architecture-level — "Claude writes the words; code owns the numbers").** The
+clean mental model governing every use of Claude here: **Claude writes and checks the words; code
+computes the numbers; credentialed humans and the affected community decide what is true, safe, and
+shippable.** Within that line, Claude is used to:
+
+- **Draft non-stigmatizing structural explainers *from* code-computed statistics.** Given the
+  analysis module's structured outputs (rates, CIs, rate difference, rate ratio, index of disparity,
+  flags), Claude drafts the technical brief and the plain-language narrative in evidence-tiered,
+  person-first, structural framing — *transforming verified numbers into prose, never inventing
+  numbers* (strong fit for the explainer engine and a future MCP server, see *Adjacent
+  opportunities*).
+- **Run an automated structural-framing / stigma linter as an advisory pre-gate.** Claude reviews any
+  draft against the editorial policy + CDC/AMA equity style guides and flags deficit framing,
+  biologizing language, silent reference-group coding, relative-only statements, missing caveats,
+  un-tiered causal claims, or absent "not medical advice" labels — wired into CI as an **advisory
+  pre-gate ahead of human framing review**; it surfaces issues, it does not approve.
+- **Draft plain-language / reading-level / translation** copy for community audiences, **auto-attach
+  caveats and limitations** (including the "adjusted-for / not-adjusted-for" and direction-of-bias
+  notes for human verification), and **triage provenance/citation-coverage** (flagging assertions
+  that lack a `Source` before CI does, and suggesting the matching `DisparityMeasure`), reducing
+  reviewer burden by pre-filling the methods/framing checklists.
+
+**The hard "Claude must NOT decide" line (enforced in the editorial/methods standard):** the
+**numbers come from code, not the model** (Claude never estimates, rounds, infers, or fills in a
+rate, CI, or count); **no causal claims and no biological-race claims** originate from Claude (it may
+restate the established literature only *with citations a human verifies*); **framing and
+patient-facing safety are decided by credentialed humans + the affected community** (the
+health-equity/community sign-off and epi/biostat sign-off are the deciders, and for patient-facing
+content the **oncologist + advocate veto is absolute** — Claude's linter cannot clear it); and Claude
+**never** decides a source's reuse terms, suppression, re-identification safety, or the accuracy of
+any helpline/resource fact (all human-verified and dated).
 
 **Data model (records)**
 
@@ -412,14 +574,23 @@ secured partner.
   *Goal:* the framing/methods/provenance/suppression gates and a reproducible skeleton exist before
   any analysis; the exemplar cancer site is selected against explicit criteria.
   *Exit:* non-stigmatizing editorial policy **and** statistical-methods+provenance+suppression
-  standard written and reviewer-approved; source **license register** drafted with each candidate
-  source's terms verified; repo skeleton + provenance schema + CI (citation-coverage, suppression,
-  license-presence lint) green; exemplar site selected with rationale.
+  standard written and reviewer-approved; the editorial policy **cites the CDC/AMA equity style
+  guides as its normative base and records deltas**, mandates **evidence-tiered structural framing**
+  ("measures the gap" vs. "literature attributes such gaps to X, cite") and the **bounded
+  intersectionality posture** (report what the data supports; disclose what suppression forces out);
+  the methods standard names **exact suppression/stability thresholds** (numerator < 10; RSE > 30%
+  unreliable / > 50% suppress; complementary suppression; joinpoint min-points), the **HD\*Calc
+  measure set**, the **"adjusted-for / not-adjusted-for"** requirement, and the
+  **direction-of-bias + OMB 1997-vs-2024** handling; source **license register** drafted with each
+  candidate source's terms verified; repo skeleton + provenance schema + CI (citation-coverage,
+  suppression, license-presence lint, **advisory stigma-linter pre-gate**) green; exemplar site
+  selected with rationale.
 
 - **M1 — Acquisition & provenance pipeline.**
   *Goal:* reproducible, provenance-complete acquisition of aggregate data for the exemplar site.
   *Exit:* acquisition module pulls SEER\*Explorer/USCS/WONDER (+ ACS/SVI context) with saved queries,
-  retrieval dates, checksums, and recorded licenses; provenance "no-assertion-without-source" check
+  retrieval dates, checksums, and **archived, checksum-pinned raw extracts** (durable against
+  federal-portal disruption), and recorded licenses; provenance "no-assertion-without-source" check
   passing; a canonical **disparities data cube** for the exemplar site built, suppressed, and
   license-cleared. **Kill-gate:** if the open aggregate data cannot support a defensible disparity
   analysis for the chosen site at acceptable suppression, switch sites or narrow scope **before**
@@ -428,14 +599,19 @@ secured partner.
 - **M2 — Core disparity analysis (exemplar site, MEDIUM).**
   *Goal:* the reviewed quantitative analysis.
   *Exit:* age-standardized rates + CIs, relative survival/stage where available, joinpoint trends,
-  and **absolute + relative** disparity (+ index of disparity) across race/ethnicity, sex, geography,
-  area-SES — **methods-reviewed and framing-reviewed**, every figure sourced, suppression honored,
-  reproducible. A **technical disparity brief** is produced.
+  and **absolute + relative** disparity (+ index of disparity, **validated against HD\*Calc**) across
+  race/ethnicity, sex, geography, area-SES — plus the **bounded intersectional cuts the data
+  supports** (with suppressed cuts explicitly disclosed), each statement carrying its
+  **"adjusted-for / not-adjusted-for"** and **direction-of-bias** notes and **evidence-tiered**
+  structural framing — **methods-reviewed and framing-reviewed**, every figure sourced, suppression
+  honored, reproducible. A **technical disparity brief** is produced.
 
 - **M3 — Health-equity narrative report + reproducibility package (MEDIUM).**
   *Goal:* an advocacy/policy-audience report and a re-runnable package.
-  *Exit:* narrative report (non-stigmatizing, limitations explicit, framing-reviewed) published;
-  reproducibility package re-runs and reproduces all figures in CI / by a second analyst.
+  *Exit:* narrative report (non-stigmatizing, limitations explicit, framing-reviewed, with optional
+  education-only **"what works" intervention pointers** via HDPulse Interventions Portal / The
+  Community Guide) published; reproducibility package re-runs and reproduces all figures in CI / by a
+  second analyst.
 
 - **M4 — Patient/public-facing explainer (HIGH — conditional, gated).**
   *Goal:* an education-only public explainer **only if** an oncologist + advocate pair is secured.
@@ -515,7 +691,10 @@ oncologist + advocate pair.
   `statsmodels`, `lifelines`) and/or R (`epitools`) for rates/CIs/survival; TypeScript/ESM for glue,
   provenance schema, CI, and lint.
 - **Reference standards:** 2000 U.S. standard population (U.S. age-standardization); WHO World
-  Standard (international); NCHS/SEER suppression rules; CDC/NCI health-equity language guidance.
+  Standard (international); NCHS/SEER suppression rules; HD\*Calc disparity-measure set; **CDC Health
+  Equity Guiding Principles for Inclusive Communication + CDC Health Equity Style Guide + AMA/AAMC
+  Advancing Health Equity language guide** (editorial-policy normative base); OMB 1997 & 2024
+  race/ethnicity standards.
 - **Elyos pieces:** `packages/schema` (Task JSON), `CLAUDE.md` (work rules + cancer guardrails),
   `docs/good-deed-definition.md` (risk tiers), Elyos governance (license + edge-case decisions).
 - **Human/decision dependencies (critical path):** the **exemplar-site decision (M0, gates M1–M6)**;
@@ -531,6 +710,8 @@ oncologist + advocate pair.
 | Analysis stigmatizes a community / biologizes race / implies fault | Medium | Critical | Non-stigmatizing editorial policy built first + framing review (advocate/community) as a blocking gate; mandatory structural-causation framing; reference-group policy; no ranking/scorecard outputs | Framing reviewer |
 | Re-identification from a thin aggregate cell | Medium | Critical | Honor most-conservative suppression rule (NCHS/SEER); complementary suppression; adversarial re-identification review; coarsen sub-national geographies; aggregate-only by construction | Maintainer / Methods reviewer |
 | Ecological fallacy / causal overclaim from aggregate data | High | High | Methods standard mandates "association not causation" + ecological-inference caveats on every output; methods review; no individual inference from group rates | Methods reviewer |
+| **Structural framing applied mechanically over-claims causation** (the mirror of biological essentialism — asserting a structural-cause from a purely ecological cut) | Medium | High | **Evidence-tiered framing** ("measures the gap" vs. "literature attributes such gaps to X, cite"); framing+methods jointly calibrate the tier boundary; "adjusted-for / not-adjusted-for" note on every statement | Framing + Methods reviewers |
+| **Silent omission of intersectional cells erases the most-affected groups** (suppression drops thin intersectional cuts) | Medium | High | **Bounded intersectionality posture**: report what the data supports at acceptable suppression, **explicitly disclose** what suppression forces out rather than dropping it silently; principled report-vs-disclose rule set in M0 | Framing + Methods reviewers |
 | Uses out-of-scope restricted data (e.g., SEER case-level/DUA) | Low | Critical | Aggregate-only rule in scope + license register; SEER Research Plus explicitly excluded; license gate blocks any DUA-gated source | Maintainer |
 | Patient reads output as medical advice | Medium | High | Patient-facing content is HIGH, education-only, "not medical advice — consult your care team," oncologist + advocate sign-off (blocking); M4 skipped if no expert pair | Oncologist/Advocate |
 | Statistical error (no age-standardization, relative-only ratios, unstable rates) | Medium | High | Methods standard (age-standardization, CIs, stability flags, **absolute + relative** always); validated epi tooling (Joinpoint, lifelines); biostat review; reproducibility check | Methods reviewer |
@@ -538,7 +719,7 @@ oncologist + advocate pair.
 | Stale data or out-of-date helpline/resource info | Medium | High | `lastVerified`/`validUntil` on sources + resources; staleness check; annual refresh runbook; helpline info re-verified before publish | Maintainer / Oncologist |
 | No delivery partner secured → cannot reach Definition of Shipped | High | High | Honest `TO BE SECURED`/`verifiedNeed:false`; dated partner-acquisition plan; build-vs-pivot decision rule (~2027-03-31); reference deed remains valuable | Steward / Maintainer |
 | No epi/framing reviewers secured → analysis blocked | Medium | High | Recruit via cancer-center COE programs, schools of public health, advocacy networks; do not ship MEDIUM content without sign-off (hard gate); hold at M1 | Maintainer |
-| Misclassification of race/ethnicity distorts findings (esp. AIAN/NHPI/Hispanic) | High | Medium | Methods + framing standard require documenting known misclassification + bridged/linked-data caveats; report uncertainty; avoid over-precise small-group claims | Methods reviewer |
+| Misclassification of race/ethnicity distorts findings (esp. AIAN/NHPI/Hispanic) | High | Medium | Methods + framing standard require documenting known misclassification + bridged/linked-data caveats + a per-group **direction-of-bias** note (which groups are under-counted and why); pre-decided **OMB 1997-vs-2024** trend-bridging; report uncertainty; avoid over-precise small-group claims | Methods reviewer |
 
 ---
 
@@ -588,12 +769,56 @@ clinical-guidance changes and re-requires oncologist + advocate sign-off.
 
 ---
 
+## Adjacent opportunities
+
+The reusable IP here is not the cancer data — it is the **reviewed-framing pipeline** (validated
+stats in → Claude-drafted structural narrative → stigma-linter → human + community review →
+provenance-bound output). Several adjacent deeds reuse that machine:
+
+- **Parallel (same domain, shared engine).** The same parameterized acquisition / provenance /
+  age-standardization core powers the roadmap sibling **`incidence-explorers`** (disparities-analysis
+  becomes the reviewed-narrative layer on top) and a **`screening-coverage-trends`** project
+  (BRFSS/USCS screening-uptake disparities for colorectal/cervical/breast — directly actionable, same
+  pipeline, natural COE-partner overlap). Additional cancer sites remain *configuration, not a
+  rewrite* (M6), each cheaper to review.
+- **Perpendicular (different domain, same machine).** The combination above generalizes to a
+  **general equity-framing-reviewed explainer engine** usable for *any* disparities domain — maternal
+  health, diabetes, environmental justice, housing, education — and the **non-stigmatizing structural-
+  framing / stigma linter** can stand alone as a library/service for journalists and advocacy orgs
+  (the field's chief failure mode is bad framing of correct numbers).
+- **MCP server.** Expose the provenance store + computed `DisparityMeasure` records + the editorial
+  policy as a **read-only MCP server**, so any reviewer's (or partner's) agent can query "give me the
+  sourced, suppression-safe, framing-compliant statement for colorectal mortality rate-ratio in
+  [group] vs reference, with caveats" — numbers-from-code, citations attached. This operationalizes
+  "Claude writes the words, code owns the numbers" as a clean reusable surface across all the
+  spin-offs.
+
+These are **opportunities, not commitments**: none is attempted before the exemplar deed ships, and
+each would carry the same guardrails (aggregate-only, provenance, suppression, evidence-tiered
+framing, community + methods review).
+
+---
+
 ## Open questions
 
 - **GLOBOCAN/IARC and other non-commercial source terms vs. CC-BY-4.0.** CC-BY permits commercial
   reuse, which some IARC/WHO terms forbid for derived data. Resolution path proposed (publish method
   + pointer, or apply source-mandated NC/attribution to that artifact), but the final license posture
   per source needs an Elyos governance decision and per-release verification.
+- **Causation-framing calibration (evidence tiers).** How strongly may a structural frame be stated
+  from purely ecological data before it itself becomes an over-claim? The "measures the gap" vs.
+  "literature attributes such gaps to X (cite)" tier boundary needs the framing **and** methods
+  reviewers to jointly define — the single most important framing-correctness decision.
+- **Intersectionality vs. suppression rule.** What is the principled rule for which intersectional
+  cuts to *report* vs. *disclose-as-suppressed*, so omission doesn't silently erase the most-affected
+  groups while still honoring suppression? A methods+framing decision tied to the bounded
+  intersectionality posture.
+- **OMB 1997 vs. 2024 race/ethnicity standard adoption.** When do the new categories (combined
+  race/ethnicity question, added MENA) enter, and how are pre/post trends bridged without misleading
+  comparisons? Belongs in the methods standard now because it fractures trend comparability.
+- **Actionability scope vs. the advice line.** Does adding a "what works" intervention pointer (via
+  HDPulse Interventions Portal / The Community Guide) risk drifting toward advice, and where exactly
+  is that line drawn relative to the HIGH patient-facing gate?
 - **Which exemplar cancer site first? — decided in M0, not deferred,** because it gates M1–M6.
   Selection criteria, scored before M1: (1) large, well-documented disparities in **open aggregate**
   data at acceptable suppression; (2) the disparity is **actionable** (e.g., screening- or
@@ -609,7 +834,12 @@ clinical-guidance changes and re-requires oncologist + advocate sign-off.
   income; which is most defensible and least stigmatizing for the chosen site.
 - **Lane** — donated by default; is there a future funded lane (with a hard budget cap) for expert
   review hours without compromising reviewer independence?
-- **Reviewer compensation/credit** — volunteer vs. funded; how to credit community reviewers fairly.
+- **Reviewer sourcing, compensation/credit, and single-point-of-failure.** The entire MEDIUM surface
+  is blocked until two volunteer experts are secured by a date — a real single point of failure.
+  Volunteer vs. funded; how to credit community reviewers fairly; and whether to secure a **named
+  institutional partner** (an NCI-designated cancer-center COE office, a school of public health, or
+  an NCI/NIMHD network such as CRCHD PACHE / Community Networks) **instead of two individuals** to
+  de-risk reviewer acquisition.
 
 ---
 
@@ -622,10 +852,17 @@ clinical-guidance changes and re-requires oncologist + advocate sign-off.
 - Portfolio context: `planning/ROADMAP.md` (Track 8b — `disparities-analysis`, `incidence-explorers`)
 - Sibling Elyos plans for house style: `planning/projects/public-official-guide/{PLAN,TASKS}.md`,
   `planning/projects/open-data-datasheets/{PLAN,TASKS}.md`
-- Data sources: NCI SEER & SEER\*Explorer; U.S. Cancer Statistics (CDC+NCI); CDC WONDER; IARC Global
-  Cancer Observatory / GLOBOCAN; U.S. Census/ACS; CDC/ATSDR Social Vulnerability Index; BRFSS
+- Data sources: NCI SEER & SEER\*Explorer; NCI State Cancer Profiles; U.S. Cancer Statistics
+  (CDC+NCI) + USCS Data Viz Tool; CDC WONDER; IARC Global Cancer Observatory / GLOBOCAN; U.S.
+  Census/ACS; CDC/ATSDR Social Vulnerability Index; BRFSS
+- Disparity / intervention references: NCI **HD\*Calc** (Index of Disparity, SII/RII); **NIMHD
+  HDPulse** Data + Interventions portals; **The Community Guide**; ACS Cancer Facts & Figures for
+  specific populations + Status of Cancer Disparities in the U.S. 2025; AACR Cancer Disparities
+  Progress Report
 - Methods references: NCI Joinpoint Regression Program; 2000 U.S. standard population (age-
-  standardization); NCHS/SEER small-cell suppression rules; CDC/NCI health-equity language guidance
+  standardization); NCHS/SEER small-cell suppression rules; OMB 1997 & 2024 race/ethnicity standards
+- Editorial / framing standards: CDC Health Equity Guiding Principles for Inclusive Communication;
+  CDC Health Equity Style Guide; AMA/AAMC Advancing Health Equity language guide
 
 ---
 
@@ -730,3 +967,65 @@ patient-facing content; helpline info must be verified + dated. **Pass.**
 posture; (2) the exemplar cancer-site choice; (3) whether the HIGH-tier patient-facing explainer is
 attempted at all. These are flagged in *Open questions* and do not block M0–M1. **Sign-off: APPROVED
 as a Draft v0.1.0 for partner outreach and M0 execution.**
+
+---
+
+## Changelog — v0.2 (analysis merged)
+
+v0.2 merges the findings of `COMPETITIVE-ANALYSIS.md` (dated 2026-06-29) into the plan. The analysis
+confirmed the v0.1 framing/methods/suppression guardrails as **best-in-class** and untouched here;
+the changes below are **surgical and additive** and **strengthen, never weaken**, those guardrails.
+
+**Concrete correctness fixes applied (from the analysis):**
+
+- **Evidence-tiered structural framing (the key correctness fix).** Structural framing applied
+  mechanically can itself **over-claim causation from ecological data** — the mirror of biological
+  essentialism. The editorial policy now requires every claim to separate **"this analysis measures
+  the gap"** from **"the literature attributes such gaps to structural factors X/Y (cite)."** Added
+  to the Executive summary, the framing-gate component, M0/M2 exits, an *Open question*, and a new
+  *Risks* row.
+- **Anchored the editorial policy to named external standards** — CDC Health Equity Guiding
+  Principles for Inclusive Communication, the CDC Health Equity Style Guide, and the AMA/AAMC
+  Advancing Health Equity language guide (record deltas), so the policy conforms to a vetted base
+  rather than being re-invented.
+- **Bounded intersectionality posture.** The plan previously analyzed dimensions one at a time and
+  treated multi-dimensional cuts mainly as a suppression risk; silent omission of thin intersectional
+  cells erases the most-affected groups. Now: **report the intersectional cuts the data supports and
+  explicitly disclose what suppression forces out.** Added to Executive summary, framing-gate
+  component, M2 exit, an *Open question*, and a *Risks* row.
+- **Sharpened anti-essentialism, thresholds, and limitation-honesty:** prohibition on
+  genetic-ancestry-as-race-proxy and SES-as-environment-not-behavior + name-the-mechanism;
+  **mechanically-checkable suppression/stability thresholds** (numerator < 10; RSE > 30% / > 50%;
+  complementary suppression; joinpoint min-points); the **HD\*Calc** measure set validated against
+  HD\*Calc; an **"adjusted-for / not-adjusted-for"** note per statement; per-group
+  **direction-of-bias** and **OMB 1997-vs-2024** trend-bridging.
+
+**Strategy integrated:**
+
+- New **"Competitive landscape & differentiation"** section (SEER\*Explorer, State Cancer Profiles,
+  USCS Data Viz, **NIMHD HDPulse** as closest competitor, **ACS Cancer Facts & Figures / Status of
+  Cancer Disparities**, HD\*Calc, County Health Rankings as the refused ranking model). Differentiator
+  = framing as a **tested, independently-reviewed release gate** (CDC/AMA-anchored, community-reviewed
+  "nothing about us without us", hard no-ranking/no-scorecard rule) plus **reviewed reproducibility**.
+- **Claude API leverage folded into the architecture** under "Claude writes the words; code owns the
+  numbers": draft structural explainers from code-computed stats, an advisory **stigma-linter
+  pre-gate**, plain-language/translation + auto-attached limitations — with the hard line that numbers
+  come from code, causal/biological-race claims are forbidden, and framing + patient-facing safety are
+  decided by credentialed humans + the affected community.
+- **Optimizations folded into the Roadmap** (M0–M3 exits) and an optional education-only **"what
+  works" intervention pointer** (HDPulse Interventions Portal / The Community Guide) plus
+  **checksum-pinned raw archives** for federal-portal-disruption resilience.
+- New **"Adjacent opportunities"** section (shared engine with `incidence-explorers` /
+  `screening-coverage-trends`; a general equity-framing-reviewed explainer engine + standalone stigma
+  linter; a read-only **MCP server**) — opportunities, not commitments, each under the same
+  guardrails.
+- **Open questions merged** (causation-framing tier calibration; intersectionality-vs-suppression
+  rule; OMB 2024 adoption; actionability-vs-advice line; reviewer single-point-of-failure /
+  institutional-partner option), and References/Dependencies updated with the new standards and
+  sources.
+
+**Preserved unchanged:** all 17 PLAN_SPEC sections and order; aggregate-public-data-only;
+case-level/DUA exclusion (incl. SEER Research Plus); per-source license verification; provenance per
+assertion; statistical rigor; non-stigmatizing framing + community/health-equity-expert review gates;
+no-medical-advice + oncologist/advocate blocking sign-off; the honest `TO BE SECURED` /
+`verifiedNeed:false` posture and the build-vs-pivot rule. No invented facts; no guardrail weakened.

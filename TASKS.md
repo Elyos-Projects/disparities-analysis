@@ -1,6 +1,6 @@
 # Disparities-Analysis — TASKS.md
 
-> Status: Draft · Version: 0.1.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
+> Status: Draft · Version: 0.2.0 · Last updated: 2026-06-29 · Owner: TBD (maintainer) · Lane: donated
 
 Backlog for **Disparities-Analysis** (slug: `disparities-analysis`), open, reproducible analyses of
 cancer outcome disparities built **only** from aggregate, open-access, de-identified public data,
@@ -60,16 +60,30 @@ oncologist + patient-advocate pair (HIGH, blocking, TO BE SECURED).
 | disparities-analysis-methods-002 | Statistical-methods + provenance + suppression standard | design-spec | medium | medium | document | — | Methods + Maintainer |
 | disparities-analysis-licensing-003 | Source license & access register (aggregate-only; verify reuse terms per source) | research | medium | medium | document | — | Maintainer + Methods |
 | disparities-analysis-site-004 | Exemplar cancer-site selection (scored against explicit criteria) — gates M1–M6 | research | small | medium | document | 003 | Maintainer + Methods + Framing |
-| disparities-analysis-repo-005 | Repo skeleton + provenance schema + CI (citation-coverage, suppression, license-presence lint) | code | medium | low | pr | — | Maintainer |
+| disparities-analysis-repo-005 | Repo skeleton + provenance schema + CI (citation-coverage, suppression, license-presence lint, advisory stigma-linter pre-gate) | code | medium | low | pr | — | Maintainer |
 
 **Acceptance criteria — key tasks**
 
 - **disparities-analysis-framing-001** (framing/editorial policy)
+  - **Anchors the policy to named external standards** — CDC Health Equity Guiding Principles for
+    Inclusive Communication, the CDC Health Equity Style Guide, and the AMA/AAMC Advancing Health
+    Equity language guide — citing them as the normative base and recording any project deltas.
   - Defines required framing: disparities described as outcomes of **modifiable structural/social
     conditions**, never as inherent group attributes; **no causal claims** beyond what the design
     supports.
+  - **Requires evidence-tiered structural framing:** every claim separates **"this analysis measures
+    the gap"** (what the dataset supports) from **"the established literature attributes such gaps to
+    structural factors X/Y (cite)"** — so structural framing is non-stigmatizing *without*
+    over-claiming causation from ecological data (the mirror of biological essentialism).
+  - **Adopts a bounded intersectionality posture:** report the intersectional cuts the data supports
+    at acceptable suppression **and explicitly disclose where suppression forces omission**, rather
+    than silently dropping thin intersectional cells (silent omission erases the most-affected
+    groups).
   - Treats race/ethnicity as **social/administrative constructs** with documented misclassification
-    (esp. AIAN/NHPI/Hispanic-origin); forbids biologizing race.
+    (esp. AIAN/NHPI/Hispanic-origin); forbids biologizing race; **prohibits interpreting
+    genetic-ancestry/admixture as a proxy for socially-assigned race**, requires area-based SES to be
+    described as *exposure/environment* not *individual behavior*, and instructs naming the
+    **mechanism** where known (insurance, screening access, environmental exposure).
   - Mandates **asset-based, person-first, community-centered** language and a **reference-group
     policy** (no group silently coded "normal"; report to a stated reference **and** an across-group
     index of disparity).
@@ -85,12 +99,22 @@ oncologist + patient-advocate pair (HIGH, blocking, TO BE SECURED).
     international), **confidence intervals** (e.g. Tiwari-modified for SEER rates), and
     relative-standard-error/stability flagging for small numerators.
   - Mandates **joinpoint** trend modeling (APC/AAPC) and **both absolute (rate difference) and
-    relative (rate ratio)** disparity measures + an index of disparity.
+    relative (rate ratio)** disparity measures + an index of disparity; **adopts the HD\*Calc measure
+    set** (Index of Disparity, SII/RII with CIs) and **validates pipeline outputs against HD\*Calc**
+    on the exemplar site.
+  - Requires a one-line **"adjusted for / not adjusted for"** note on every disparity statement (e.g.
+    age-standardized controls age but not stage, comorbidity, or access) to block over-interpretation
+    of an age-adjusted-only gap.
   - Defines the `Source`/`DisparityMeasure`/`Assertion` records and the **"no quantitative assertion
     without a `Source`"** rule.
-  - Defines **small-cell suppression** to the most conservative applicable rule (NCHS counts < 10;
-    SEER/USCS thresholds) **plus complementary suppression** (suppressed cells not reconstructable
-    from margins) and the re-identification check.
+  - Defines **small-cell suppression** with **exact, mechanically-checkable thresholds** (NCHS-style:
+    numerator < 10; flag RSE > 30% unreliable, suppress at RSE > 50%; SEER/USCS thresholds honored
+    where more conservative; a joinpoint minimum-points rule) **plus complementary suppression**
+    (suppressed cells not reconstructable from margins) and the re-identification check.
+  - Records a per-group **direction-of-bias** note for race/ethnicity misclassification (which groups
+    are under-counted and why — CDC/USCS note under-estimation for AIAN/API/Hispanic people; linkage
+    such as IHS for AIAN) and **pre-decides OMB 1997-vs-2024 standard handling** (combined question +
+    MENA) so pre/post trends are bridged, not silently mis-compared.
   - Signed off by the epidemiology/biostatistics reviewer.
 
 - **disparities-analysis-licensing-003** (license & access register)
@@ -111,11 +135,13 @@ oncologist + patient-advocate pair (HIGH, blocking, TO BE SECURED).
   - Records the decision (or shortlist + decision deadline of 2026-08-31) with rationale; the chosen
     site gates M1–M6.
 
-**M0 Definition of Done:** framing/editorial policy + methods/provenance/suppression standard written
-and reviewer-approved; source license register drafted with each candidate source's terms verified
-and out-of-scope restricted data excluded; repo skeleton + provenance schema + CI (citation-coverage,
-suppression, license-presence lint) green; exemplar cancer site selected (or shortlisted with a fixed
-decision) so M1+ builds against a viable corpus.
+**M0 Definition of Done:** framing/editorial policy (CDC/AMA-anchored, evidence-tiered structural
+framing, bounded intersectionality posture) + methods/provenance/suppression standard (exact
+thresholds, HD\*Calc set, adjusted-for note, direction-of-bias + OMB handling) written and
+reviewer-approved; source license register drafted with each candidate source's terms verified and
+out-of-scope restricted data excluded; repo skeleton + provenance schema + CI (citation-coverage,
+suppression, license-presence lint, **advisory stigma-linter pre-gate**) green; exemplar cancer site
+selected (or shortlisted with a fixed decision) so M1+ builds against a viable corpus.
 
 ---
 
@@ -172,14 +198,23 @@ kill-gate passed (or a site/scope decision recorded) before M2 investment.
 
 - **disparities-analysis-disparity-010** (disparity measures)
   - Reports **both** a rate difference **and** a rate ratio for every disparity statement (never
-    relative-only) plus an **index of disparity** across all groups.
+    relative-only) plus an **index of disparity** (and SII/RII) across all groups, using the
+    **HD\*Calc measure set validated against HD\*Calc**.
+  - Applies the **bounded intersectionality posture**: computes the intersectional cuts the data
+    supports at acceptable suppression and **explicitly discloses the cuts suppression forces out**
+    (no silent omission).
+  - Attaches a one-line **"adjusted for / not adjusted for"** note to each statement.
   - Honors the **reference-group policy** (no group silently coded "normal"; reference explicitly
-    stated); documents race/ethnicity misclassification caveats.
+    stated); documents race/ethnicity misclassification caveats with a per-group
+    **direction-of-bias** note.
   - Methods + framing sign-off recorded.
 
 - **disparities-analysis-brief-011** (technical brief)
   - States findings with mandatory caveats (data vintage, suppression, CIs, **ecological-fallacy /
-    association-not-causation**); frames disparities as **modifiable structural/social conditions**.
+    association-not-causation**, "adjusted-for / not-adjusted-for"); frames disparities as
+    **modifiable structural/social conditions** using **evidence-tiered** framing (measures-the-gap
+    vs. literature-attributes-with-citation), and discloses intersectional cuts suppression forced
+    out.
   - Every quantitative assertion is sourced (citation-coverage check passes); no ranking/scorecard
     framing; passes framing review.
 
@@ -200,9 +235,13 @@ and framing-approved.
 **Acceptance criteria — key tasks**
 
 - **disparities-analysis-report-012** (narrative report)
-  - Translates the analysis for an advocacy/policy audience with **structural-causation framing**,
-    explicit limitations, and actionable (non-prescriptive) context; **no medical advice**, no
-    ranking/scorecard.
+  - Translates the analysis for an advocacy/policy audience with **evidence-tiered structural framing**
+    ("measures the gap" vs. "literature attributes such gaps to X, cite"), explicit limitations
+    (including intersectional cuts suppression forced out), and actionable (non-prescriptive) context;
+    **no medical advice**, no ranking/scorecard.
+  - May include optional **education-only "what works" intervention pointers** mapping findings to
+    evidence-based interventions via the **NIMHD HDPulse Interventions Portal / The Community Guide**,
+    without the project itself making any clinical recommendation.
   - All quantitative claims sourced; framing review sign-off recorded.
 
 - **disparities-analysis-reproduce-013** (reproducibility harness)
@@ -335,10 +374,13 @@ Complete, schema-valid Task JSON for the first M0 task (`disparities-analysis-fr
   "tokenEstimate": "medium",
   "status": "open",
   "context": "Disparities-Analysis produces open, reproducible analyses of cancer outcome disparities (incidence, stage at diagnosis, mortality, survival, screening uptake) using ONLY aggregate, open-access, de-identified public data (SEER*Explorer, USCS, CDC WONDER, GLOBOCAN). A disparity analysis done carelessly can do real harm: it can biologize race, imply a community is to blame, launder ecological correlations into causal claims, or stigmatize. So the non-stigmatizing health-equity editorial/framing policy is a hard product requirement built FIRST, alongside the statistical-methods+provenance+suppression standard. This cold-start task writes that policy; every later analysis is mounted behind it. No partner organization or framing reviewer is yet secured.",
-  "objective": "Write the authoritative non-stigmatizing health-equity editorial and framing policy that all later analyses and write-ups must follow and be reviewed against: structural-causation framing, treatment of race/ethnicity as a social/administrative construct with documented misclassification, asset-based and community-centered language, the reference-group policy, the mandatory caveats (data vintage, suppression, confidence intervals, ecological-fallacy/'association is not causation'), the no-ranking/no-scorecard rule, and the no-medical-advice + 'consult your care team' rule for any patient-facing surface.",
+  "objective": "Write the authoritative non-stigmatizing health-equity editorial and framing policy that all later analyses and write-ups must follow and be reviewed against, anchored to named external standards (CDC Health Equity Guiding Principles for Inclusive Communication, CDC Health Equity Style Guide, AMA/AAMC Advancing Health Equity language guide): evidence-tiered structural framing (separating 'this analysis measures the gap' from 'the literature attributes such gaps to structural factors X/Y, cite'), a bounded intersectionality posture (report what the data supports; disclose what suppression forces out), treatment of race/ethnicity as a social/administrative construct with documented misclassification (no genetic-ancestry-as-race proxy; SES as exposure not behavior; name the mechanism), asset-based and community-centered language, the reference-group policy, the mandatory caveats (data vintage, suppression, confidence intervals, ecological-fallacy/'association is not causation', adjusted-for/not-adjusted-for), the no-ranking/no-scorecard rule, and the no-medical-advice + 'consult your care team' rule for any patient-facing surface.",
   "acceptanceCriteria": [
+    "Cites the CDC Health Equity Guiding Principles for Inclusive Communication, the CDC Health Equity Style Guide, and the AMA/AAMC Advancing Health Equity language guide as the policy's normative base and records any project deltas",
     "Mandates that disparities are described as outcomes of modifiable structural/social conditions (access, insurance, exposure, structural racism, poverty), never as inherent group attributes, and forbids causal claims beyond what the data design supports",
-    "Treats race/ethnicity as social/administrative constructs, requires documenting known misclassification (especially AIAN, NHPI, and Hispanic-origin coding) and bridged-population caveats, and forbids biologizing race",
+    "Requires evidence-tiered structural framing: every claim separates 'this analysis measures the gap' from 'the established literature attributes such gaps to structural factors X/Y (cite)', so structural framing does not itself over-claim causation from ecological data",
+    "Adopts a bounded intersectionality posture: report the intersectional cuts the data supports at acceptable suppression AND explicitly disclose where suppression forces omission, instead of silently dropping thin intersectional cells",
+    "Treats race/ethnicity as social/administrative constructs, requires documenting known misclassification (especially AIAN, NHPI, and Hispanic-origin coding) and bridged-population caveats, forbids biologizing race, prohibits interpreting genetic-ancestry/admixture as a proxy for socially-assigned race, requires SES to be framed as exposure/environment not individual behavior, and instructs naming the mechanism where known",
     "Requires asset-based, person-first, community-centered language and a reference-group policy: no group is silently coded as 'normal'; disparities are reported to an explicitly stated reference AND as an across-group index of disparity",
     "Requires both absolute (rate difference) and relative (rate ratio) measures to accompany every disparity statement (never relative-only)",
     "Mandates standard caveats on every output: data vintage, small-cell suppression, confidence intervals, and an 'association is not causation'/ecological-fallacy warning",
