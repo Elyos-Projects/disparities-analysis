@@ -1,0 +1,37 @@
+{
+  "id": "disparities-analysis-framing-001",
+  "title": "Non-stigmatizing health-equity editorial & framing policy spec",
+  "project": "disparities-analysis",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "health-equity", "epidemiology", "editorial"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Disparities-Analysis produces open, reproducible analyses of cancer outcome disparities (incidence, stage at diagnosis, mortality, survival, screening uptake) using ONLY aggregate, open-access, de-identified public data (SEER*Explorer, USCS, CDC WONDER, GLOBOCAN). A disparity analysis done carelessly can do real harm: it can biologize race, imply a community is to blame, launder ecological correlations into causal claims, or stigmatize. So the non-stigmatizing health-equity editorial/framing policy is a hard product requirement built FIRST, alongside the statistical-methods+provenance+suppression standard. This cold-start task writes that policy; every later analysis is mounted behind it. No partner organization or framing reviewer is yet secured.",
+  "objective": "Write the authoritative non-stigmatizing health-equity editorial and framing policy that all later analyses and write-ups must follow and be reviewed against: structural-causation framing, treatment of race/ethnicity as a social/administrative construct with documented misclassification, asset-based and community-centered language, the reference-group policy, the mandatory caveats (data vintage, suppression, confidence intervals, ecological-fallacy/'association is not causation'), the no-ranking/no-scorecard rule, and the no-medical-advice + 'consult your care team' rule for any patient-facing surface.",
+  "acceptanceCriteria": [
+    "Mandates that disparities are described as outcomes of modifiable structural/social conditions (access, insurance, exposure, structural racism, poverty), never as inherent group attributes, and forbids causal claims beyond what the data design supports",
+    "Treats race/ethnicity as social/administrative constructs, requires documenting known misclassification (especially AIAN, NHPI, and Hispanic-origin coding) and bridged-population caveats, and forbids biologizing race",
+    "Requires asset-based, person-first, community-centered language and a reference-group policy: no group is silently coded as 'normal'; disparities are reported to an explicitly stated reference AND as an across-group index of disparity",
+    "Requires both absolute (rate difference) and relative (rate ratio) measures to accompany every disparity statement (never relative-only)",
+    "Mandates standard caveats on every output: data vintage, small-cell suppression, confidence intervals, and an 'association is not causation'/ecological-fallacy warning",
+    "Establishes the no-ranking/no-scorecard rule (no 'worst places', no naming-and-shaming of communities, providers, or institutions)",
+    "Requires the persistent 'general education, not medical advice - consult your care team' labeling and the blocking oncologist + patient-advocate sign-off gate for any patient-/public-facing content",
+    "Reviewed and signed off by a health-equity/community framing reviewer (recorded in the reviewers ledger), preferring a representative of an affected community"
+  ],
+  "resources": [
+    "planning/projects/disparities-analysis/PLAN.md",
+    "CLAUDE.md",
+    "docs/good-deed-definition.md",
+    "packages/schema/src/schemas.ts",
+    "planning/ROADMAP.md"
+  ],
+  "output": "A reviewed policy-specification document (the non-stigmatizing health-equity editorial/framing charter) defining structural-causation framing, race/ethnicity-as-construct + misclassification handling, language rules, the reference-group policy, mandatory caveats, the no-ranking/no-scorecard rule, and the no-medical-advice + expert-sign-off gates - the contract that disparities-analysis-brief-011, disparities-analysis-report-012, and disparities-analysis-explainer-014 are reviewed against.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
