@@ -1,0 +1,37 @@
+{
+  "id": "disparities-analysis-cube-008",
+  "title": "Canonical disparities data cube for exemplar site (aggregate, suppressed, license-cleared) + feasibility kill-gate",
+  "project": "disparities-analysis",
+  "type": "data",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "data", "epidemiology", "health-equity"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "After the acquisition module (disparities-analysis-acquire-007) pulls the raw aggregate data, this task builds the canonical disparity data cube for the exemplar site: a suppressed, license-cleared, provenance-complete aggregate dataset across race/ethnicity, sex, geography, area-SES, and year. A data-feasibility kill-gate is mandatory: if open aggregate data cannot support a defensible disparity analysis at acceptable suppression for the chosen site, M2 pauses for a site-switch or scope-narrow decision. Depends on: disparities-analysis-site-004, disparities-analysis-acquire-007.",
+  "objective": "Build the canonical, suppressed, license-cleared aggregate disparities data cube for the exemplar cancer site across race/ethnicity, sex, geography, area-SES, and year. Apply the suppression rules from disparities-analysis-methods-002 (numerator < 10 suppressed; complementary suppression; RSE flags). Attach provenance (Source record) to every cell. Run the suppression test (no cell violates thresholds), the complementary-suppression check (no suppressed cell is reconstructable from margins), and a re-identification safety review. Execute the feasibility kill-gate: if the data cannot support a defensible analysis at acceptable suppression, record this finding and halt M2 investment pending a site-switch or scope-narrow decision.",
+  "acceptanceCriteria": [
+    "Canonical data cube is built for the exemplar site with dimensions: race/ethnicity, sex, geography (national/state at minimum), area-SES (SVI or census-tract poverty), and year",
+    "Every cell carries a complete Source provenance record; cells below suppression threshold are marked 'suppressed' not omitted",
+    "Suppression test passes: no published cell has numerator < 10 or RSE > 50%; complementary suppression is applied so suppressed cells cannot be reconstructed from published margins",
+    "Stability flags are attached to cells with RSE > 30% marking them as unreliable",
+    "Re-identification safety review is completed: no published combination of dimensions isolates a small, potentially identifiable group at sub-national granularity",
+    "All data in the cube is sourced from license-cleared sources per disparities-analysis-licensing-003; no restricted or DUA-gated data is included",
+    "Feasibility kill-gate is explicitly executed and recorded: if open aggregate data cannot support a defensible disparity analysis at acceptable suppression for the chosen site, M2 is halted and a site-switch or scope-narrow decision is documented; if the gate passes, the record states this explicitly",
+    "Methods reviewer sign-off recorded on suppression, complementary suppression, and feasibility determination"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-site-004.json",
+    "tasks/disparities-analysis-acquire-007.json"
+  ],
+  "output": "The canonical suppressed, license-cleared aggregate disparities data cube (dataset artifact) for the exemplar cancer site, plus the feasibility kill-gate record confirming M2 investment is warranted (or documenting the halt and pivot decision).",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

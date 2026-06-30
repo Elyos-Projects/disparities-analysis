@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-notebook-022",
+  "title": "Reproducible explanatory notebook / methods walkthrough",
+  "project": "disparities-analysis",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["health", "cancer", "epidemiology", "health-equity", "education"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "BACKLOG: A teaching artifact that walks analysts and researchers through how to read disparity statistics correctly — age-standardization, confidence intervals, the ecological fallacy, both absolute and relative measures, suppression, and the reference-group policy. This is a 'how to not misread disparity data' guide, not a clinical resource. Low risk (no patient-facing content). Can be produced after M3.",
+  "objective": "Write a reproducible explanatory notebook (or narrative document with executable code) that teaches analysts, students, journalists, and health-equity researchers how to correctly read and interpret cancer disparity statistics. Topics: age-standardization (why it matters, how to check it), confidence intervals and stability flags, the ecological fallacy ('association is not causation'), why both absolute and relative measures are required (and how relative-only reporting distorts when base rates are low), small-cell suppression and what 'suppressed' means for interpretation, and the reference-group policy. Uses real examples from the exemplar site analysis. Non-stigmatizing framing throughout.",
+  "acceptanceCriteria": [
+    "Covers all core methods-literacy topics: age-standardization, confidence intervals, stability flags (RSE), the ecological fallacy, absolute vs. relative disparity measures, small-cell suppression, and the reference-group policy",
+    "Explains why relative-only disparity ratios can distort when base rates are low and why the project always reports both absolute and relative measures",
+    "Uses real, sourced examples from the exemplar site analysis with complete provenance; no invented numbers",
+    "Non-stigmatizing framing throughout: examples are framed as 'how to read the data correctly,' not as characterizations of communities",
+    "Notebook or document is reproducible: if code is included, it runs and produces the illustrated outputs from the pinned data",
+    "Reviewed and approved by Maintainer (engineering) and Methods reviewer (statistical accuracy); framing review optional but preferred",
+    "Useful as a standalone teaching artifact for public-health students, journalists, or COE staff without requiring knowledge of the full project"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-framing-001.json"
+  ],
+  "output": "A reproducible explanatory notebook or methods-walkthrough document teaching correct interpretation of cancer disparity statistics, using sourced examples from the exemplar site analysis — methods-reviewed and framing-reviewed.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

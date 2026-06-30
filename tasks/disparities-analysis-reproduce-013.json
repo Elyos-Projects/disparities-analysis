@@ -1,0 +1,36 @@
+{
+  "id": "disparities-analysis-reproduce-013",
+  "title": "Reproducibility package + scripts/reproduce.ts re-derivation harness (CI gate)",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "data", "engineering", "epidemiology"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "After the core analysis is complete (rates, trends, and disparity measures), the reproducibility harness ensures all published figures and tables can be independently re-derived from pinned inputs — the project's defining quality guarantee. The harness is wired into CI as a blocking gate. Environment, pinned dataset release years, and exact queries must be documented so a second analyst can re-derive results independently. Depends on: disparities-analysis-rates-009, disparities-analysis-disparity-010.",
+  "objective": "Implement scripts/reproduce.ts as a complete reproducibility harness that: re-runs the full analysis pipeline from pinned inputs (archived raw pulls with checksums from disparities-analysis-acquire-007); asserts that all published figures and tables are reproduced bit-for-bit or within documented tolerance; is wired into CI as a blocking gate that must pass before any release. Document the environment (Python/R/Node versions, library pinning), pinned dataset release years, exact queries, and expected outputs so a second analyst can independently verify results.",
+  "acceptanceCriteria": [
+    "scripts/reproduce.ts re-runs the full pipeline from pinned, checksummed inputs and asserts all published figures and tables are reproduced bit-for-bit (or within explicitly documented numerical tolerance for any stochastic step)",
+    "Wired into CI as a blocking gate: the CI check fails if any published figure or table cannot be reproduced from the pinned inputs",
+    "Environment is fully documented: Python version, R version, Node/pnpm version, all library versions pinned (requirements.txt or lockfile for Python; renv.lock for R; pnpm-lock.yaml for Node)",
+    "Pinned dataset release years and exact query parameters are recorded and version-controlled so a second analyst can re-pull the same source data",
+    "A second analyst (or CI runner) can execute the harness without manual intervention and reproduce all published outputs",
+    "Raw source pulls are mirrored/archived with checksums so the harness remains runnable even if federal portals change or go offline",
+    "pnpm build && pnpm test && pnpm lint pass"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-acquire-007.json",
+    "tasks/disparities-analysis-rates-009.json",
+    "tasks/disparities-analysis-disparity-010.json"
+  ],
+  "output": "A merged PR adding scripts/reproduce.ts, the complete reproducibility package (pinned environment, pinned data, documented queries), and the CI blocking gate asserting all published figures/tables re-derive correctly.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

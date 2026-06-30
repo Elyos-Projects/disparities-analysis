@@ -1,0 +1,38 @@
+{
+  "id": "disparities-analysis-explainer-014",
+  "title": "Plain-language public explainer (education-only; \"not medical advice\")",
+  "project": "disparities-analysis",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["health", "cancer", "health-equity", "editorial", "public-health"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "GATED: This milestone is attempted ONLY if an oncologist + patient-advocate reviewer pair is secured. If that pair is not secured, this task is formally skipped and the project ships M2-M3 outputs only. When attempted: this is HIGH risk (patient-/public-facing health content). All content is education-only, carries a persistent 'not medical advice' label, and requires blocking oncologist + patient-advocate sign-off before merge. No screening, prevention, or treatment recommendations to individuals. Depends on: disparities-analysis-report-012.",
+  "objective": "Write a plain-language, education-only public explainer on the exemplar site's cancer disparities for a community/public audience. The explainer: uses plain language (accessible reading level); is framed entirely as general education; carries a persistent 'This is general education, not medical advice — consult your care team' label on every page/section; gives no screening, prevention, or treatment recommendation to any individual; uses non-stigmatizing, asset-based, community-centered language per the editorial policy; states findings with evidence-tiered structural framing; includes the standard caveats; sources all facts; and has no ranking/scorecard content. Blocking oncologist + patient-advocate sign-off required before merge.",
+  "acceptanceCriteria": [
+    "Written at an accessible reading level appropriate for a general community audience; technical terms are explained or avoided",
+    "Carries a persistent 'This is general education, not medical advice — consult your care team' label visible on every page or section — not only in a footnote",
+    "Gives no screening, prevention, or treatment recommendation to any individual; does not advise any person about their own care",
+    "Uses non-stigmatizing, asset-based, person-first, community-centered language throughout per disparities-analysis-framing-001; no deficit framing",
+    "States findings with evidence-tiered structural framing: 'this analysis measures the gap' is distinguished from 'the established literature attributes such gaps to structural factors X/Y (cite)'",
+    "Includes standard caveats (data vintage, suppression, 'association is not causation', 'adjusted-for / not-adjusted-for') in accessible language",
+    "All facts are sourced; citation-coverage CI check passes",
+    "No ranking/scorecard content; no 'worst places' or naming-and-shaming language",
+    "Oncologist sign-off recorded before merge (blocking): clinical accuracy, 'not medical advice' framing, and safety of any health-related content verified",
+    "Patient-advocate sign-off recorded before merge (blocking): community framing, language, and appropriateness verified"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-framing-001.json",
+    "tasks/disparities-analysis-report-012.json"
+  ],
+  "output": "A reviewed plain-language public explainer document (education-only, 'not medical advice') for the exemplar cancer site, with blocking oncologist + patient-advocate sign-off recorded before merge.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

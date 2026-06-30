@@ -1,0 +1,37 @@
+{
+  "id": "disparities-analysis-rates-009",
+  "title": "Age-standardized rates + CIs + relative survival/stage + joinpoint trends (exemplar site)",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "epidemiology", "biostatistics", "data", "health-equity"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "With the canonical data cube (disparities-analysis-cube-008) in place and the methods standard (disparities-analysis-methods-002) approved, this task implements the core analysis module: age-standardized incidence and mortality rates with confidence intervals, relative survival and stage-at-diagnosis where available, and joinpoint trend analysis. All outputs use validated, citable epidemiology tooling (NCI Joinpoint Regression Program, Python lifelines/statsmodels or R epitools). Every output figure carries a Source; figures are regenerated from source so they cannot drift. Depends on: disparities-analysis-cube-008.",
+  "objective": "Implement the analysis module (analysis/) to compute, for the exemplar cancer site: (1) age-standardized incidence and mortality rates using the 2000 US standard population, with Tiwari-modified confidence intervals and RSE/stability flags; (2) relative survival and stage-at-diagnosis distribution where available in open aggregate data; (3) joinpoint trend analysis (NCI Joinpoint Regression Program) with APC and AAPC for each stratum. All computations use validated epi tooling (NCI Joinpoint, Python pandas/numpy/lifelines/statsmodels, or R epitools). Every output figure is linked to its Source record and regenerated from source to prevent drift. The module is parameterized so a second cancer site is configuration, not a rewrite.",
+  "acceptanceCriteria": [
+    "Computes age-standardized incidence and mortality rates using the 2000 US standard population for all race/ethnicity, sex, geography, and area-SES strata in the data cube",
+    "Attaches Tiwari-modified confidence intervals to all rates and RSE-based stability flags (unreliable at RSE > 30%); suppressed cells carry no computed rate",
+    "Computes relative survival and stage-at-diagnosis distribution where available in open aggregate SEER data for the exemplar site",
+    "Runs joinpoint trend analysis (NCI Joinpoint Regression Program) for each stratum with APC and AAPC reported; applies the minimum-points rule from disparities-analysis-methods-002",
+    "Uses validated, citable epi tooling only (NCI Joinpoint, Python pandas/numpy/statsmodels/lifelines, or R epitools); no bespoke reimplementation of age-standardization or joinpoint",
+    "Every output figure and table is linked to its Source record; figures are regenerated from pinned source data to prevent drift",
+    "Analysis module is parameterized so adding a second cancer site requires only configuration changes, not a code rewrite",
+    "Methods reviewer sign-off recorded confirming age-standardization, CI method, stability flagging, and trend modeling are correct (version-scoped)",
+    "pnpm build && pnpm test && pnpm lint pass"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-cube-008.json"
+  ],
+  "output": "A merged PR adding the age-standardized rates, CIs, stability flags, relative survival/stage, and joinpoint trend analysis module for the exemplar site, with every figure sourced and methods-reviewer sign-off recorded.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

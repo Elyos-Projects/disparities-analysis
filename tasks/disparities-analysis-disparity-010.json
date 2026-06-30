@@ -1,0 +1,37 @@
+{
+  "id": "disparities-analysis-disparity-010",
+  "title": "Absolute + relative disparity + index of disparity across dimensions (reference-group policy)",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "epidemiology", "biostatistics", "health-equity", "data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Building on the age-standardized rates (disparities-analysis-rates-009), this task computes the full disparity measure set: absolute (rate difference) and relative (rate ratio) disparity for every race/ethnicity, sex, geography, and area-SES stratum, plus the HD*Calc measure set (Index of Disparity, SII, RII with CIs). The bounded intersectionality posture is applied: intersectional cuts the data supports at acceptable suppression are reported, and cuts that suppression forces out are explicitly disclosed. Every statement carries an 'adjusted-for / not-adjusted-for' note and per-group direction-of-bias documentation. Depends on: disparities-analysis-rates-009.",
+  "objective": "Implement the disparity computation module: for every disparity statement output both a rate difference AND a rate ratio (never relative-only); compute the HD*Calc measure set (Index of Disparity, SII, RII with CIs) across all groups and validate outputs against HD*Calc on the exemplar site; apply the bounded intersectionality posture (report intersectional cuts the data supports at acceptable suppression; explicitly disclose cuts suppression forces out); attach a one-line 'adjusted for / not adjusted for' note to every disparity statement; enforce the reference-group policy (no group silently coded as 'normal'; reference explicitly stated); document race/ethnicity misclassification caveats with a per-group direction-of-bias note.",
+  "acceptanceCriteria": [
+    "Computes both absolute (rate difference) and relative (rate ratio) disparity for every stratum in the data cube; no disparity statement is reported with only a rate ratio",
+    "Computes the HD*Calc measure set — Index of Disparity, SII, and RII with CIs — across all race/ethnicity groups and validates the outputs against an independent HD*Calc run on the exemplar site (results match within documented tolerance)",
+    "Applies the bounded intersectionality posture: computes intersectional cuts (e.g. race x sex x geography) the data supports at acceptable suppression and explicitly records which intersectional cuts suppression forced out rather than silently omitting them",
+    "Attaches a one-line 'adjusted for / not adjusted for' note to every disparity output (e.g. 'age-standardized; not adjusted for stage, comorbidity, or insurance')",
+    "Enforces the reference-group policy: the reference group for every disparity statement is explicitly declared in the output; no group is implicitly coded as the comparison baseline without disclosure",
+    "Documents race/ethnicity misclassification caveats with a per-group direction-of-bias note (e.g. AIAN/API/Hispanic incidence/mortality underestimated per CDC/USCS notes) attached to relevant outputs",
+    "Methods reviewer and framing reviewer sign-off recorded confirming disparity measures, HD*Calc validation, intersectionality posture, and reference-group policy are correct",
+    "pnpm build && pnpm test && pnpm lint pass"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-framing-001.json",
+    "tasks/disparities-analysis-rates-009.json"
+  ],
+  "output": "A merged PR adding the disparity computation module with absolute + relative disparity, HD*Calc measure set (validated), bounded intersectionality posture, 'adjusted-for' notes, reference-group policy enforcement, and direction-of-bias documentation, with methods and framing reviewer sign-off recorded.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

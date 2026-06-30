@@ -1,0 +1,34 @@
+{
+  "id": "disparities-analysis-site2-019",
+  "title": "Second cancer-site analysis pack",
+  "project": "disparities-analysis",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["health", "cancer", "epidemiology", "health-equity", "data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "BACKLOG: Only after M6 is complete and the maintenance rotation is in place. The parameterized analysis module built for the exemplar site makes adding a second cancer site a configuration exercise rather than a rewrite, but the full methods + framing review gate applies to each new site. Site selection follows the same scored criteria used in disparities-analysis-site-004.",
+  "objective": "Select, acquire, analyze, and deliver a complete disparity analysis pack for a second cancer site using the parameterized acquisition and analysis modules built in M1-M3. Apply the same methods standard, framing policy, suppression rules, and review gates as the exemplar site. Produce the full output set: suppressed data cube, age-standardized rates + CIs + trends, absolute + relative disparity + index of disparity, technical brief, and health-equity narrative report — all methods-reviewed and framing-reviewed.",
+  "acceptanceCriteria": [
+    "Second cancer site is selected using the same scored criteria as disparities-analysis-site-004 (open-data feasibility, actionability, reviewer availability, partner fit)",
+    "Acquisition module is run for the second site using the parameterized configuration; new Source provenance records created",
+    "Suppressed canonical data cube is built and the feasibility kill-gate is passed (or a pivot decision recorded) for the second site",
+    "Age-standardized rates, CIs, stability flags, joinpoint trends, and absolute + relative disparity (+ index of disparity, HD*Calc-validated) are computed for the second site",
+    "Technical disparity brief and health-equity narrative report are produced with evidence-tiered framing, explicit limitations, and all claims sourced",
+    "Full methods + framing review gate applies: methods reviewer and framing reviewer sign-off recorded for the second site's outputs",
+    "Reproducibility harness extended to cover the second site; all figures reproduced in CI"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-refresh-018.json"
+  ],
+  "output": "A complete analysis pack for a second cancer site: suppressed data cube (dataset artifact), rates + trends code, disparity measures, technical brief, and narrative report — all methods-reviewed and framing-reviewed.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

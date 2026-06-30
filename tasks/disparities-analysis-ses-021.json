@@ -1,0 +1,34 @@
+{
+  "id": "disparities-analysis-ses-021",
+  "title": "Area-deprivation deep-dive (SVI vs. ADI vs. tract poverty)",
+  "project": "disparities-analysis",
+  "type": "research",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["health", "cancer", "epidemiology", "health-equity", "data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "BACKLOG: The core analysis uses area-based SES (SVI or census-tract poverty) as a dimension, but the choice of measure matters for defensibility and framing. CDC/ATSDR SVI, the Area Deprivation Index (ADI), and census-tract poverty/income each have different coverage, validity, and stigmatization risks. This research task evaluates the options and recommends the least-stigmatizing, most-defensible measure for the chosen cancer site and partner context.",
+  "objective": "Research and evaluate the three main area-based socioeconomic measures used in cancer disparity analysis — CDC/ATSDR Social Vulnerability Index (SVI), the Area Deprivation Index (ADI), and census-tract poverty/income — against criteria including: data coverage and availability for the exemplar site, validity and peer-review basis for cancer disparity research, stigmatization risk (is the measure framed as exposure/environment vs. individual behavior?), alignment with the project's framing policy, and partner interpretability. Recommend the most defensible, least-stigmatizing measure (or combination) for the exemplar site and document the rationale.",
+  "acceptanceCriteria": [
+    "Evaluates SVI, ADI, and census-tract poverty/income on: data coverage for the exemplar site, peer-review basis for cancer disparity research, geographical availability at the required granularity without unacceptable suppression",
+    "Evaluates each measure's stigmatization risk: is it framed as an area-level exposure/environment, or does it risk being read as an individual-behavior proxy? Which framing is least stigmatizing and most consistent with disparities-analysis-framing-001?",
+    "Evaluates partner interpretability: which measure will be most legible and useful to the target delivery partner (COE office, coalition, public-health department)?",
+    "Recommends the most defensible, least-stigmatizing measure (or justified combination) with documented rationale scored against the evaluation criteria",
+    "Recommendation is reviewed and approved by the methods reviewer and framing reviewer",
+    "The chosen measure is documented for use in the core analysis module and the recommendation is cited in subsequent disparity analyses that include area-SES as a dimension"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-framing-001.json",
+    "tasks/disparities-analysis-methods-002.json"
+  ],
+  "output": "A research document evaluating SVI vs. ADI vs. census-tract poverty for cancer disparity analysis and recommending the most defensible, least-stigmatizing area-SES measure for the exemplar site — reviewed by methods and framing reviewers.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

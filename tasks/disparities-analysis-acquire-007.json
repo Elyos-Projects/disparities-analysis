@@ -1,0 +1,36 @@
+{
+  "id": "disparities-analysis-acquire-007",
+  "title": "Reproducible acquisition module (SEER*Explorer/USCS/WONDER + ACS/SVI context) with saved queries, retrieval dates, checksums",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "data", "epidemiology", "engineering"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "large",
+  "status": "open",
+  "context": "Disparities-Analysis requires reproducible, provenance-complete acquisition of aggregate statistics from SEER*Explorer/USCS, CDC WONDER, and context layers (Census/ACS denominators, CDC/ATSDR SVI, BRFSS screening prevalence) for the exemplar cancer site. Raw pulls must be archived with checksums so the package is reproducible even if federal portals change or go offline. No individual-level or DUA-gated data is ingested. Depends on: disparities-analysis-licensing-003, disparities-analysis-provenance-006.",
+  "objective": "Implement a documented, re-runnable acquisition module (acquire/) that pulls aggregate statistics for the exemplar cancer site from each verified source. Each pull saves: the exact query parameters, the retrieval date, the raw result archived with a checksum, and a complete Source provenance record (including verified license). The module honors each source's rate limits and reuse terms, ingests no individual-level data, and writes no secrets or tokens to logs or committed files. Context layers (ACS denominators, SVI, BRFSS) are pulled with the same provenance discipline. An end-to-end re-run from scratch reproduces the same checksummed outputs.",
+  "acceptanceCriteria": [
+    "Acquisition module (acquire/) is re-runnable and pulls aggregate statistics from SEER*Explorer/USCS, CDC WONDER, Census/ACS denominators, CDC/ATSDR SVI, and BRFSS for the exemplar site",
+    "Every pull archives the raw result with a checksum and records a complete Source provenance record (source name, dataset, releaseYear, exact query/parameters, retrievalDate, url, license, suppressionRule, standardPopulation)",
+    "Saved queries and parameters are version-controlled so the exact pull can be reproduced; retrieval dates are recorded and human-readable",
+    "No individual-level or record-level data is ingested at any point; only aggregate published statistics",
+    "No secrets, API keys, or tokens appear in any committed file, log, or receipt; CI enforces this",
+    "Module honors each source's rate limits and access terms as documented in disparities-analysis-licensing-003",
+    "An end-to-end re-run from scratch reproduces the same checksummed raw outputs (bit-for-bit or within documented tolerance for any source that varies by retrieval date)",
+    "Methods reviewer sign-off recorded confirming no DUA-gated or restricted data was ingested"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-licensing-003.json",
+    "tasks/disparities-analysis-provenance-006.json"
+  ],
+  "output": "A merged PR adding the reproducible acquisition module (acquire/) with saved queries, archived raw pulls with checksums, complete Source provenance records, and a verified end-to-end re-run for the exemplar cancer site.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}
