@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-handoff-017",
+  "title": "Partner uses an analysis to inform a program/report/grant/decision; outcome recorded (the deed)",
+  "project": "disparities-analysis",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "health-equity", "partnership", "public-health"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "This is the Definition of Shipped for the project: a real organization uses a disparities-analysis output to inform a concrete program, report, grant application, or community decision. The outcome must be recorded with the partner's confirmation and the steward's attestation. Framing and methods must be independently verified; any patient-facing piece must maintain 'not medical advice' framing. Without this, the project has not shipped regardless of merge status. Depends on: disparities-analysis-partner-016.",
+  "objective": "Close the loop: the secured delivery partner demonstrably uses an analysis (technical brief, narrative report, or conditionally the public explainer) to inform a concrete program, report, grant, or community decision. Record the outcome with the partner's confirmation and the steward's attestation. Confirm that framing + methods are independently verified on all material used, 'not medical advice' framing is upheld on any patient-facing piece, and all quantitative assertions remain sourced. The steward records the outcome in the governance log.",
+  "acceptanceCriteria": [
+    "The delivery partner demonstrably uses a disparities-analysis output (technical brief, narrative report, and/or public explainer if M4 shipped) to inform a concrete program, report, grant application, or community health decision",
+    "The outcome is recorded with the partner's written or signed confirmation describing how the analysis was used and what decision or program it informed",
+    "The steward's outcome attestation is recorded in the project governance log",
+    "Methods and framing are independently verified on all materials the partner used; the verification record is stored with the outcome log",
+    "Any patient-facing piece used by the partner maintains the 'general education, not medical advice — consult your care team' framing and the oncologist + advocate sign-off record is confirmed intact",
+    "The outcome record is the basis for Elyos reporting the deed as delivered: a real beneficiary, a confirmed concrete use, framing and methods verified"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-partner-016.json",
+    "tasks/disparities-analysis-brief-011.json",
+    "tasks/disparities-analysis-report-012.json"
+  ],
+  "output": "A governance outcome record documenting the partner's confirmed use of the analysis (program/report/grant/decision), the steward's attestation, the methods + framing verification confirmation, and the Elyos deed-delivery record.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

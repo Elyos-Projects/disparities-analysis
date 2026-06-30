@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-intl-020",
+  "title": "International GLOBOCAN/CI5 comparison (WHO World Standard)",
+  "project": "disparities-analysis",
+  "type": "data",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["health", "cancer", "epidemiology", "data", "health-equity"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "dataset",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "BACKLOG: An international comparison using IARC GLOBOCAN and/or IARC CI5 data adds context to the US disparity analysis by situating domestic rates in a global frame. However, IARC/GLOBOCAN license terms may conflict with CC-BY-4.0 (IARC terms may restrict commercial redistribution of derived data); the per-artifact resolution documented in disparities-analysis-licensing-003 must be honored. Age-standardization uses the WHO World Standard Population. IARC reuse terms must be verified and the CC-BY conflict resolved per-artifact before any GLOBOCAN-derived data is published.",
+  "objective": "Produce an international comparison dataset and summary using IARC GLOBOCAN and/or IARC Cancer Incidence in Five Continents (CI5) data for the exemplar cancer site, age-standardized to the WHO World Standard Population. Honor IARC reuse terms: for any source whose terms restrict redistribution of derived data, publish the analysis method and a pointer to the source rather than the restricted derived data, or apply the source-mandated terms to that specific artifact. Record the per-artifact license resolution. Apply the same suppression and provenance standards as all other project outputs.",
+  "acceptanceCriteria": [
+    "Uses IARC GLOBOCAN and/or CI5 data for the exemplar cancer site with age-standardization to the WHO World Standard Population",
+    "IARC reuse terms are verified before any data is used; the per-artifact license resolution is recorded (CC-BY-4.0 where permitted; for restricted artifacts: publish method + pointer or apply source-mandated NC/attribution terms)",
+    "No GLOBOCAN/CI5-derived data is published under CC-BY-4.0 if IARC terms prohibit it; in that case the published artifact is the method and source pointer, not the restricted data",
+    "International comparison is age-standardized to the WHO World Standard Population; standard population is recorded in all Source records",
+    "Suppression rules are applied (cross-check with source's own suppression policy); provenance records are complete",
+    "Results contextualize the US disparity findings within an international frame using evidence-tiered framing; no causal claims from ecological international comparisons",
+    "Methods reviewer sign-off recorded"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-licensing-003.json",
+    "tasks/disparities-analysis-methods-002.json"
+  ],
+  "output": "An international comparison dataset/summary for the exemplar site using GLOBOCAN/CI5 (WHO-standardized), with IARC license resolution documented per-artifact (CC-BY-4.0 where permitted; method + pointer for restricted artifacts).",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0 where source license permits; IARC/GLOBOCAN artifacts: per-source terms apply"
+}

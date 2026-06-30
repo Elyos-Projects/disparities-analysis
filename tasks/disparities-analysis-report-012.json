@@ -1,0 +1,36 @@
+{
+  "id": "disparities-analysis-report-012",
+  "title": "Health-equity narrative report (advocacy/policy audience; non-stigmatizing)",
+  "project": "disparities-analysis",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "health-equity", "epidemiology", "editorial"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Building on the technical disparity brief (disparities-analysis-brief-011), this task produces the health-equity narrative report for an advocacy and policy audience. The report translates the analysis into accessible non-stigmatizing prose with evidence-tiered structural framing, explicit limitations (including intersectional cuts suppression forced out), actionable (non-prescriptive) context, and optional education-only 'what works' intervention pointers via HDPulse Interventions Portal/The Community Guide. No medical advice. Depends on: disparities-analysis-brief-011.",
+  "objective": "Write the health-equity narrative report for an advocacy/policy audience translating the exemplar-site analysis into accessible prose with evidence-tiered structural framing ('measures the gap' vs. 'literature attributes such gaps to X, cite'), explicit limitations (data vintage, suppression, ecological inference, intersectional cuts forced out), and actionable (non-prescriptive) context. Optionally map findings to evidence-based interventions via the NIMHD HDPulse Interventions Portal and The Community Guide for an education-only 'what works' section — without the project itself making any clinical recommendation. All quantitative claims sourced. No ranking/scorecard. Framing review sign-off required.",
+  "acceptanceCriteria": [
+    "Written for an advocacy/policy audience: accessible prose, minimal jargon, findings explained in plain language without simplifying the limitations",
+    "Uses evidence-tiered structural framing throughout: 'this analysis measures the gap' is distinguished from 'the established literature attributes such gaps to structural factors X/Y (cite)'; no over-claiming causation from ecological data",
+    "Explicitly states limitations: data vintage, small-cell suppression, confidence intervals, ecological-fallacy caveat, and the specific intersectional cuts suppression forced out of the analysis",
+    "Actionable (non-prescriptive) context is provided where appropriate; any optional 'what works' section maps findings to evidence-based interventions via NIMHD HDPulse Interventions Portal and/or The Community Guide and is clearly labeled as education-only, not a clinical recommendation",
+    "No ranking/scorecard framing, 'worst places' language, or naming-and-shaming of communities, providers, or institutions",
+    "No medical advice; the report does not advise individuals about screening, prevention, or treatment",
+    "All quantitative claims carry source references; citation-coverage CI check passes",
+    "Framing reviewer and methods reviewer sign-off recorded"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-framing-001.json",
+    "tasks/disparities-analysis-brief-011.json"
+  ],
+  "output": "A reviewed health-equity narrative report (for advocacy/policy audience) with evidence-tiered structural framing, explicit limitations, optional education-only 'what works' context, all claims sourced, and framing + methods sign-offs recorded.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

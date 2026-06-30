@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-partner-016",
+  "title": "Secure delivery partner/steward + independent methods/framing audit of shipped outputs",
+  "project": "disparities-analysis",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "health-equity", "partnership", "epidemiology"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The project is not 'shipped' on merge — it is shipped when a real organization uses an analysis to inform a program, report, grant, or decision. This task secures the delivery partner and steward and completes an independent audit of the shipped analytical outputs (methods, framing, provenance, suppression, licenses) before delivery. The dated partner-acquisition plan requires a partner/steward secured by 2026-12-31; if none by ~2027-03-31 the build-vs-pivot decision rule applies. Depends on: disparities-analysis-brief-011, disparities-analysis-report-012, disparities-analysis-reproduce-013.",
+  "objective": "Secure a real delivery partner/steward (an NCI-designated cancer center COE office, community cancer coalition, patient-advocacy organization, state/county public-health department, or academic health-equity research group) and complete an independent methods + framing audit of the shipped outputs. The steward is assigned and verifiedNeed flips to true. The independent audit re-confirms licenses, suppression, provenance, and non-stigmatizing framing on all shipped artifacts. Record the partner engagement and audit outcomes. The partner-acquisition plan requires ≥3 candidate organizations in active conversation by 2026-08-31 and a partner/steward confirmed by 2026-12-31.",
+  "acceptanceCriteria": [
+    "A real organization is secured as the delivery partner and steward: an NCI-designated cancer center COE office, community cancer coalition, patient-advocacy organization, state/county public-health department, or academic health-equity research group",
+    "The steward is named and their role (owns the partner relationship, records outcomes) is documented in the project governance log",
+    "An independent methods audit is completed and recorded: confirms age-standardization, CIs, suppression, provenance completeness, and license compliance on all shipped analytical outputs",
+    "An independent framing audit is completed and recorded: confirms non-stigmatizing framing, reference-group policy, evidence-tiered structural framing, intersectional-suppression disclosure, and 'not medical advice' framing on any public-facing piece",
+    "The partner-acquisition plan milestones are documented: ≥3 candidate organizations in active conversation by 2026-08-31 and partner/steward confirmed by 2026-12-31 (or a build-vs-pivot decision record if the deadline passes)",
+    "verifiedNeed is updated to true in the project governance once the partner is confirmed"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-brief-011.json",
+    "tasks/disparities-analysis-report-012.json",
+    "tasks/disparities-analysis-reproduce-013.json"
+  ],
+  "output": "A partner-acquisition and audit document recording the secured delivery partner/steward, the independent methods + framing audit outcomes, license and suppression re-confirmation, and the governance record updating verifiedNeed to true.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

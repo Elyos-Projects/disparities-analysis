@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-provenance-006",
+  "title": "Provenance + assertion-citation schema implementation + \"no assertion without source\" CI check",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "data", "engineering", "epidemiology"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "The methods standard (disparities-analysis-methods-002) defines Source, DisparityMeasure, and Assertion record types and mandates that no quantitative assertion ships without a machine-checkable Source. The repo skeleton (disparities-analysis-repo-005) provides the directory structure. This task implements those schemas in code and wires the citation-coverage check into CI as a blocking gate. Depends on: disparities-analysis-methods-002, disparities-analysis-repo-005.",
+  "objective": "Implement the full provenance layer in TypeScript/ESM: the Source record (name, dataset, releaseYear, query, retrievalDate, url, license, suppressionRule, standardPopulation, lastVerified, validUntil), the DisparityMeasure record (cancerSite, measure, dimension, group, referenceGroup, rate, ciLow, ciHigh, standardPopulation, count or 'suppressed', rateDifference, rateRatio, indexOfDisparity, stabilityFlag, sourceId), and the Assertion record linking every textual quantitative claim to one or more sourceIds and DisparityMeasures. Wire the 'no assertion without source' rule as a blocking CI gate. Include unit tests and add a changeset.",
+  "acceptanceCriteria": [
+    "Source record type is implemented with all required fields (name, dataset, releaseYear, query, retrievalDate, url, license, suppressionRule, standardPopulation, lastVerified, validUntil) and exports a validation function",
+    "DisparityMeasure record type is implemented with all required fields (cancerSite, measure, dimension, group, referenceGroup, rate, ciLow, ciHigh, standardPopulation, count/'suppressed', rateDifference, rateRatio, indexOfDisparity, stabilityFlag, sourceId) and validates that both rate difference and rate ratio are present",
+    "Assertion record type links every quantitative claim to at least one sourceId and one DisparityMeasure; unsourced quantitative assertions are invalid by schema",
+    "Citation-coverage CI check runs as a blocking gate on every PR: scans the repo for quantitative assertions and fails if any lack a valid Source reference",
+    "Unit tests cover valid records, missing-source failures, and missing-absolute-measure failures; pnpm test passes",
+    "A changeset is included for the provenance schema as a user-facing addition",
+    "pnpm build && pnpm test && pnpm lint pass"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-repo-005.json"
+  ],
+  "output": "A merged PR adding the full provenance TypeScript/ESM schema (Source, DisparityMeasure, Assertion), validation functions, unit tests, and a blocking CI citation-coverage gate to the repo.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

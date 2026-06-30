@@ -1,0 +1,36 @@
+{
+  "id": "disparities-analysis-brief-011",
+  "title": "Technical disparity brief (methods, findings, limitations; non-stigmatizing)",
+  "project": "disparities-analysis",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "epidemiology", "health-equity", "editorial"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "With the disparity analysis complete (disparities-analysis-disparity-010), this task produces the technical disparity brief for a researcher and health-equity advocate audience. The brief must state methods, findings, and limitations in non-stigmatizing, evidence-tiered framing anchored to the editorial policy (disparities-analysis-framing-001) and must pass citation-coverage and framing review. No ranking/scorecard framing. Depends on: disparities-analysis-disparity-010.",
+  "objective": "Write the technical disparity brief for the exemplar cancer site targeting a researcher/health-equity advocate audience. The brief states findings with mandatory caveats (data vintage, suppression, confidence intervals, 'association is not causation'/ecological-fallacy, 'adjusted-for / not-adjusted-for') and uses evidence-tiered structural framing: distinguishing 'this analysis measures the gap' from 'the established literature attributes such gaps to structural factors X/Y (cite)'. Intersectional cuts suppression forced out are explicitly disclosed. No ranking/scorecard framing. Every quantitative claim is sourced. Passes framing review.",
+  "acceptanceCriteria": [
+    "States methods clearly: data sources (with licenses), age-standardization method, CI method, joinpoint trend approach, disparity measures used (absolute + relative + index of disparity), suppression thresholds applied, and race/ethnicity misclassification caveats",
+    "States findings with mandatory caveats on every quantitative output: data vintage and release year, small-cell suppression, confidence intervals, ecological-fallacy/'association is not causation' caveat, and the one-line 'adjusted-for / not-adjusted-for' note",
+    "Uses evidence-tiered structural framing throughout: 'this analysis measures the gap' statements are distinguished from 'the established literature attributes such gaps to structural factors X/Y (cite)' statements — no over-claiming causation from purely ecological data",
+    "Explicitly discloses intersectional cuts that suppression forced out of the analysis rather than silently omitting them",
+    "No ranking/scorecard framing, 'worst places' language, or naming-and-shaming of any community, provider, or institution",
+    "Every quantitative assertion carries a source reference; citation-coverage CI check passes",
+    "Methods reviewer and framing reviewer sign-off recorded confirming statistical accuracy and non-stigmatizing framing"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-framing-001.json",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-disparity-010.json"
+  ],
+  "output": "A reviewed technical disparity brief document (for researcher/advocate audience) with methods, findings, limitations, evidence-tiered structural framing, and mandatory caveats — methods-reviewed and framing-reviewed, with sign-offs recorded.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

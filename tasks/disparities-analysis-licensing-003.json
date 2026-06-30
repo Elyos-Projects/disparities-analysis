@@ -1,0 +1,33 @@
+{
+  "id": "disparities-analysis-licensing-003",
+  "title": "Source license & access register (aggregate-only; verify reuse terms per source)",
+  "project": "disparities-analysis",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "data", "licensing", "compliance"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Disparities-Analysis uses only aggregate, open-access, de-identified public data. Every source's reuse terms must be verified and recorded before any data is used or republished. Sources include SEER*Explorer, USCS, CDC WONDER, GLOBOCAN/IARC, Census/ACS, CDC/ATSDR SVI, and BRFSS. The GLOBOCAN/IARC license may conflict with CC-BY-4.0 (IARC terms may be non-commercial or restrict redistribution of derived data). This register is a blocking gate: no source's data is used or published until its row is complete.",
+  "objective": "Research and document the verified reuse terms for every candidate data source (SEER*Explorer, USCS, CDC WONDER, GLOBOCAN/IARC, Census/ACS, SVI, BRFSS, and optionally WHO Mortality DB/CI5). For each source record: the verified reuse terms, whether redistribution under CC-BY-4.0 is permitted, any non-commercial or no-derivatives constraint, controlled-access exclusions, and the per-artifact resolution for restricted sources (publish method + pointer, or apply source-mandated terms). Explicitly exclude controlled-access/DUA-gated data (dbGaP, EGA, SEER Research Plus case-level extracts). Flag the GLOBOCAN/IARC vs. CC-BY conflict and record the governance decision.",
+  "acceptanceCriteria": [
+    "Records verified reuse terms for each candidate source: SEER*Explorer/SEER aggregate, USCS (CDC+NCI), CDC WONDER, GLOBOCAN/IARC, Census/ACS, CDC/ATSDR SVI, BRFSS, and optionally WHO Mortality DB/CI5",
+    "For each source states explicitly whether redistribution of derived data under CC-BY-4.0 is permitted, referencing the source's actual published terms with retrieval date",
+    "Explicitly excludes controlled-access and DUA-gated case-level data: dbGaP, EGA, individual biobanks, and SEER Research Plus case-level extracts — recorded as out of scope with rationale",
+    "Flags the GLOBOCAN/IARC vs. CC-BY-4.0 conflict (IARC NC terms may forbid commercial redistribution) and records the per-artifact resolution: publish method + pointer, or apply source-mandated terms to that artifact",
+    "Register is version-controlled and includes a retrieval/verification date for each source's terms so staleness can be detected on refresh",
+    "Reviewed and approved by Maintainer as a blocking gate before any source's data is used or published"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "CLAUDE.md"
+  ],
+  "output": "A version-controlled source license and access register document listing every candidate data source with its verified reuse terms, CC-BY-4.0 compatibility, exclusion rationale (for restricted sources), and GLOBOCAN/IARC conflict resolution — the blocking gate required before any source's data is used in the pipeline.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "disparities-analysis-dashboard-024",
+  "title": "Static, no-PII aggregate visualization of the data cube",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["health", "cancer", "data", "health-equity", "engineering"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "BACKLOG: A static, no-PII aggregate visualization layer on the canonical data cube would improve accessibility of findings for partner organizations and the public. The visualization must be aggregate-only (no individual data), honor suppression (suppressed cells are displayed as suppressed, not zero or interpolated), include no ranking/scorecard framing, and carry the mandatory caveats. This is lower priority than the core analysis and reports.",
+  "objective": "Build a static, client-side visualization of the canonical disparities data cube for the exemplar site. The visualization must: display only aggregate, suppressed, license-cleared data; display suppressed cells as explicitly suppressed (not as zero or blank or interpolated); include no ranking or scorecard display (no 'worst states/counties' lists); carry the mandatory caveats (data vintage, suppression, CIs, ecological-fallacy, 'association is not causation', 'not medical advice'); be statically generated from the data cube so no individual-level data can be inferred from the visualization; and include provenance/source attribution.",
+  "acceptanceCriteria": [
+    "Visualization is fully static (no server-side data processing, no API serving individual queries over thin cells) and generated at build time from the canonical suppressed data cube",
+    "Displays only aggregate, suppressed, license-cleared data; suppressed cells are displayed as explicitly suppressed (e.g. labeled 'data suppressed — count < 10') rather than as zero, blank, or interpolated",
+    "No ranking or scorecard display: no sorted lists of 'best/worst' geographies, no color scales that rank communities, no 'naming and shaming'",
+    "Mandatory caveats are displayed on every view: data vintage, suppression rule, CI availability, ecological-fallacy/'association is not causation' note, and 'not medical advice'",
+    "Source attribution is displayed for every data dimension shown, linking to the Source provenance record",
+    "Suppression re-identification check: the visualization does not enable reconstruction of suppressed cells by cross-filtering aggregate views",
+    "pnpm build && pnpm test && pnpm lint pass; no secrets or PII in build artifacts",
+    "Methods reviewer and framing reviewer sign-off recorded"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-cube-008.json",
+    "tasks/disparities-analysis-framing-001.json"
+  ],
+  "output": "A merged PR adding a static, no-PII aggregate visualization of the disparities data cube — suppression-honored, no ranking/scorecard, mandatory caveats displayed, provenance attributed, and methods + framing reviewed.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

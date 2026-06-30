@@ -1,0 +1,36 @@
+{
+  "id": "disparities-analysis-repo-005",
+  "title": "Repo skeleton + provenance schema + CI (citation-coverage, suppression, license-presence lint, advisory stigma-linter pre-gate)",
+  "project": "disparities-analysis",
+  "type": "code",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "data", "epidemiology", "engineering"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "pr",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Before any data is acquired or analysis run, the repository must have a working skeleton with a provenance schema, and CI checks that enforce the project's hard requirements: every quantitative assertion must have a Source, all published cells must pass suppression rules, every used dataset must have a recorded license, and a stigma-linter advisory pre-gate must run before human framing review. These are guardrails, not documentation.",
+  "objective": "Build the repo skeleton and wire up the CI gates that enforce the project's non-negotiable standards: (1) a TypeScript/ESM provenance schema implementing Source, DisparityMeasure, and Assertion record types; (2) a citation-coverage CI check that fails if any quantitative assertion lacks a Source; (3) a suppression CI check that fails if any published cell violates the configured suppression threshold; (4) a license-presence lint that fails if any data source is used without a recorded verified license; (5) an advisory stigma-linter pre-gate (Claude-based, advisory only, not a blocking approver) that reviews drafts against the framing policy and flags deficit framing, biologizing language, relative-only disparity statements, or missing caveats before human framing review.",
+  "acceptanceCriteria": [
+    "Repo directory structure is in place: acquire/, analysis/, provenance/, reports/, scripts/, tasks/, with a top-level package.json and tsconfig.json using ESM/pnpm",
+    "Provenance schema (TypeScript/ESM) defines Source, DisparityMeasure, and Assertion record types matching the data model in PLAN.md; schema compiles and passes pnpm build",
+    "Citation-coverage CI check runs on every PR and fails if any quantitative assertion in the repo lacks a machine-checkable Source reference",
+    "Suppression CI check runs on every PR and fails if any published data cell violates the configured suppression threshold (numerator < 10 or RSE > 50%)",
+    "License-presence lint runs on every PR and fails if any source's data is used without a corresponding verified entry in the license register",
+    "Advisory stigma-linter pre-gate is wired into CI as a non-blocking, advisory step that flags deficit framing, biologizing language, relative-only disparity statements, missing ecological-fallacy caveats, or absent 'not medical advice' labels for human review — it surfaces issues but does not itself approve or block",
+    "No secrets, tokens, or API keys appear in any committed file; CI enforces this",
+    "pnpm build && pnpm test && pnpm lint all pass"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "CLAUDE.md",
+    "packages/schema/src/schemas.ts"
+  ],
+  "output": "A merged PR establishing the repo skeleton, TypeScript/ESM provenance schema, and CI gates (citation-coverage, suppression, license-presence lint, advisory stigma-linter pre-gate) — the engineering foundation all subsequent tasks build on.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "MIT"
+}

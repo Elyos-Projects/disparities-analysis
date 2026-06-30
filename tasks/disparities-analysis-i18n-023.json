@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-i18n-023",
+  "title": "Translate the public explainer (HIGH) into priority languages",
+  "project": "disparities-analysis",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "low",
+  "domain": ["health", "cancer", "health-equity", "public-health", "translation"],
+  "riskTier": "high",
+  "urgent": false,
+  "deliverable": "translation",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "BACKLOG: Only after M4 ships (the oncologist + patient-advocate reviewed public explainer). Translating the explainer into languages spoken by affected communities (e.g. Spanish, Simplified Chinese, Vietnamese, Tagalog — chosen based on the partner's community) extends reach and equity. HIGH risk: translated patient-facing health education content requires the same framing and clinical-accuracy sign-off as the English original, in each target language, with a native-speaker/community-representative review. Per-language framing + Onc+Adv review required.",
+  "objective": "Translate the reviewed public explainer (disparities-analysis-explainer-014) into priority languages chosen based on the delivery partner's community (e.g. Spanish, Simplified Chinese, Vietnamese, Tagalog). Each translation must: be reviewed by a native-speaker/community representative familiar with health-equity framing in that language; carry the same persistent 'not medical advice' label (translated appropriately); maintain non-stigmatizing, person-first framing in the target language; and have oncologist + patient-advocate sign-off before publication. The 'not medical advice' caveat must not be diluted or omitted in translation.",
+  "acceptanceCriteria": [
+    "Target languages are selected based on the delivery partner's community demographics and confirmed with the partner/steward before translation begins",
+    "Each translated explainer carries the persistent 'not medical advice — consult your care team' label (translated appropriately and prominently, not only in a footnote) in the target language",
+    "Each translation is reviewed by a native speaker familiar with health-equity and health-literacy framing in the target language and cultural context; review recorded",
+    "Non-stigmatizing, person-first, community-centered framing is maintained in each target language; a framing reviewer with cultural competency in the target language confirms this",
+    "Oncologist sign-off recorded for each target-language version (blocking): confirms clinical accuracy and 'not medical advice' framing are upheld in translation",
+    "Patient-advocate sign-off recorded for each target-language version (blocking): confirms community appropriateness and language accessibility",
+    "Each translated version is linked to the source English version and the translation date is recorded; the translation is marked as requiring re-verification on any material update to the English source"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-explainer-014.json",
+    "tasks/disparities-analysis-framing-001.json"
+  ],
+  "output": "Reviewed, oncologist + patient-advocate approved translations of the public explainer into priority languages, each with a native-speaker/community framing review, persistent 'not medical advice' label, and per-language sign-off recorded.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

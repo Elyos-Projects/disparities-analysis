@@ -1,0 +1,38 @@
+{
+  "id": "disparities-analysis-methods-002",
+  "title": "Statistical-methods + provenance + suppression standard",
+  "project": "disparities-analysis",
+  "type": "design-spec",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "epidemiology", "biostatistics", "data", "health-equity"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Disparities-Analysis produces reproducible cancer outcome disparity analyses from aggregate, open-access public data. Every quantitative claim must stand up to peer-level scrutiny: correct age-standardization, confidence intervals, small-cell suppression, both absolute and relative disparity measures, and explicit limitations. This standard is built first alongside the framing policy (disparities-analysis-framing-001) as a hard product requirement. No epidemiology/biostatistics reviewer is yet secured.",
+  "objective": "Write the authoritative statistical-methods, provenance, and suppression standard that all analyses must follow. The standard mandates: age-standardization (2000 US standard population for US data; WHO World Standard for international); confidence intervals (Tiwari-modified for SEER rates); RSE/stability flagging; joinpoint trend modeling with APC/AAPC; both absolute (rate difference) and relative (rate ratio) disparity plus the HD*Calc measure set (Index of Disparity, SII/RII with CIs) validated against HD*Calc on the exemplar site; an 'adjusted-for / not-adjusted-for' one-line note on every disparity statement; exact mechanically-checkable suppression thresholds (numerator < 10, flag RSE > 30%, suppress RSE > 50%, complementary suppression, joinpoint minimum-points rule); per-group direction-of-bias notes for race/ethnicity misclassification; and pre-decided OMB 1997-vs-2024 trend-bridging.",
+  "acceptanceCriteria": [
+    "Mandates age-standardization using the 2000 US standard population for domestic data and the WHO World Standard for international comparisons, with the standard population recorded in every Source record",
+    "Requires confidence intervals on all rates (e.g. Tiwari-modified method for SEER rates) and RSE-based stability flags: flag unreliable at RSE > 30%, suppress at RSE > 50%",
+    "Mandates joinpoint trend modeling (NCI Joinpoint Regression Program) with APC and AAPC reported for all trend comparisons, including a minimum-points rule for the joinpoint model",
+    "Requires both absolute (rate difference) and relative (rate ratio) disparity measures on every disparity statement — never relative-only; adopts the HD*Calc measure set (Index of Disparity, SII, RII with CIs) and validates pipeline outputs against HD*Calc on the exemplar site",
+    "Requires a one-line 'adjusted for / not adjusted for' note on every disparity statement (e.g. age-standardized controls age but not stage, comorbidity, or access) to prevent over-interpretation",
+    "Defines the Source, DisparityMeasure, and Assertion provenance records and enforces 'no quantitative assertion without a Source' as a mechanically-checkable rule wired into CI",
+    "Defines exact, mechanically-checkable small-cell suppression thresholds: suppress numerator < 10 (NCHS-style); apply complementary suppression so suppressed cells cannot be reconstructed from margins; honor SEER/USCS thresholds where more conservative; set a joinpoint minimum-points rule",
+    "Records a per-group direction-of-bias note for race/ethnicity misclassification (which groups are under-counted and why, per CDC/USCS notes for AIAN, API, and Hispanic people; IHS linkage for AIAN mentioned)",
+    "Pre-decides OMB 1997-vs-2024 race/ethnicity standard handling (combined question, added MENA category) so pre/post trends are bridged with documented methodology rather than silently mis-compared",
+    "Signed off by the epidemiology/biostatistics reviewer (recorded in the reviewers ledger)"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "CLAUDE.md",
+    "docs/good-deed-definition.md"
+  ],
+  "output": "A reviewed methods-specification document defining the project's statistical-methods, provenance-record, and suppression standards — the contract that disparities-analysis-rates-009, disparities-analysis-disparity-010, and all subsequent analyses are reviewed against.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

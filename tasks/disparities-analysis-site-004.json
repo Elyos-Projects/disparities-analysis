@@ -1,0 +1,33 @@
+{
+  "id": "disparities-analysis-site-004",
+  "title": "Exemplar cancer-site selection (scored against explicit criteria) — gates M1-M6",
+  "project": "disparities-analysis",
+  "type": "research",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["health", "cancer", "epidemiology", "health-equity", "data"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Before any analysis investment (M1-M6), the project must select one exemplar cancer site where open aggregate data can support a defensible, non-stigmatizing disparity analysis at acceptable suppression. The choice gates all downstream milestones. Candidate sites with large, well-documented, screening-actionable disparities in open data (e.g. colorectal or cervical cancer) are preferred. No partner or reviewer is yet secured. Depends on: disparities-analysis-licensing-003.",
+  "objective": "Score candidate cancer sites against explicit criteria and select the exemplar site (or produce a shortlist with a decision deadline of 2026-08-31) whose selection gates M1-M6. Scoring criteria: (1) large, well-documented disparities in open aggregate data at acceptable suppression across race/ethnicity, sex, geography, and area-SES; (2) actionability of the disparity (screening- or access-driven gaps that a partner could act on, e.g. colorectal or cervical cancer); (3) availability of credentialed methods and framing reviewers with expertise in the chosen site; (4) candidate partner fit (COE program, advocacy coalition, or public-health department whose catchment and mission match the site). Record the decision rationale.",
+  "acceptanceCriteria": [
+    "Evaluates candidate cancer sites (e.g. colorectal, cervical, breast, lung) against four scored criteria: open-data feasibility at acceptable suppression, actionability of the documented disparity, reviewer availability, and candidate partner fit",
+    "Selects a single exemplar site with documented rationale, OR produces a ranked shortlist with a fixed decision deadline of no later than 2026-08-31",
+    "Confirms that the chosen site's disparity data is available in open aggregate sources (SEER*Explorer, USCS, CDC WONDER) at race/ethnicity, sex, geography, and area-SES dimensions without unacceptable suppression",
+    "Records the source-license compatibility of the chosen site's data (cross-references disparities-analysis-licensing-003)",
+    "Decision document is reviewed and approved by Maintainer + Methods reviewer + Framing reviewer before M1 begins"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "CLAUDE.md",
+    "tasks/disparities-analysis-licensing-003.json"
+  ],
+  "output": "A scored site-selection document recording the evaluation of candidate cancer sites against explicit criteria and the selected exemplar site (or shortlist with deadline), which serves as the M1-M6 gate decision.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}

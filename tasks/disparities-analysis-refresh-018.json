@@ -1,0 +1,35 @@
+{
+  "id": "disparities-analysis-refresh-018",
+  "title": "Annual data-refresh + re-standardization runbook + maintenance rotation + second-site process",
+  "project": "disparities-analysis",
+  "type": "maintenance",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": ["health", "cancer", "data", "epidemiology", "engineering"],
+  "riskTier": "medium",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "After the deed ships (disparities-analysis-handoff-017), the project needs a sustainable maintenance process. Public-health data sources (SEER/USCS/GLOBOCAN) release annually, helpline/resource information can go stale, and source licenses may change. A named maintenance rotation, annual refresh runbook, and documented process for adding a second cancer site are required for M6. Depends on: disparities-analysis-handoff-017.",
+  "objective": "Write the annual data-refresh and re-standardization runbook, establish the maintenance rotation, and document the reviewer-gated process for adding a second cancer site. The runbook covers: re-pulling with new release years, re-running the reproducible pipeline, re-verifying source licenses and suppression rules, re-running methods + framing review for material changes, and re-verifying any helpline/resource information. The lastVerified/validUntil staleness fail-safe governs when data or resources are flagged stale. Outcomes are tracked with the partner (programs informed, reports using the analysis) — not download counts.",
+  "acceptanceCriteria": [
+    "Runbook documents the full annual refresh cycle: re-pull with new release years using the acquisition module, re-run the reproducibility harness, re-verify source licenses and suppression thresholds, re-run methods + framing review for any material change in findings, and re-verify all helpline/resource information if any patient-facing content was shipped",
+    "lastVerified/validUntil staleness fail-safe is configured: any data source or resource item past its validUntil date is automatically flagged or withheld rather than served as current",
+    "A named maintenance rotation is established: at least one named maintainer owns the annual refresh and pipeline health; contact and handoff process documented",
+    "Outcome tracking process is documented: programs informed, reports/grants using the analysis, and beneficiary-reported usefulness are tracked with the partner — download counts are explicitly excluded as a success metric",
+    "Reviewer-gated process for adding a second cancer site is documented: uses the parameterized analysis module, requires the same methods + framing review gate, and describes the site-selection and review steps for a subsequent site",
+    "Reviewed and approved by Maintainer + Methods reviewer"
+  ],
+  "resources": [
+    "PLAN.md",
+    "TASKS.md",
+    "tasks/disparities-analysis-methods-002.json",
+    "tasks/disparities-analysis-reproduce-013.json",
+    "tasks/disparities-analysis-handoff-017.json"
+  ],
+  "output": "A reviewed maintenance runbook document covering annual data-refresh, re-standardization, staleness fail-safe, maintenance rotation, partner outcome-tracking process, and the reviewer-gated second-site expansion process.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
